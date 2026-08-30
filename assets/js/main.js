@@ -489,8 +489,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var progress = -rect.top / trackHeight;
         progress = Math.max(0, Math.min(1, progress));
 
-        var activeIndex = Math.min(4, Math.floor(progress * 5));
         var steps = track.querySelectorAll('.process-wave-step');
+        var totalSteps = steps.length || 5;
+        var activeIndex = Math.min(totalSteps - 1, Math.floor(progress * totalSteps));
         var lineActive = track.querySelector('.process-line-active');
         var fillBar = track.querySelector('.indicator-fill');
         var stepNumEl = track.querySelector('.current-step-num');
@@ -503,17 +504,17 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         });
 
-        var linePct = (activeIndex / 4) * 100;
+        var linePct = totalSteps > 1 ? (activeIndex / (totalSteps - 1)) * 100 : 100;
         if (lineActive) {
           lineActive.style.width = linePct + '%';
         }
 
         if (fillBar) {
-          fillBar.style.width = Math.min(100, Math.max(20, ((activeIndex + 1) / 5) * 100)) + '%';
+          fillBar.style.width = Math.min(100, Math.max(10, Math.round(((activeIndex + 1) / totalSteps) * 100))) + '%';
         }
 
         if (stepNumEl) {
-          stepNumEl.textContent = '0' + (activeIndex + 1);
+          stepNumEl.textContent = (activeIndex + 1 < 10 ? '0' : '') + (activeIndex + 1);
         }
       });
     }

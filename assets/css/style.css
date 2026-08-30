@@ -1042,13 +1042,14 @@ a.btn.btn-outline:hover,
   max-width: 1340px;
   margin: 40px auto 0 auto;
   padding: 0 20px;
+  --process-cols: 5;
 }
 
 .process-line-bg {
   position: absolute;
   top: 55px;
-  left: 100px;
-  right: 100px;
+  left: calc(100% / (2 * var(--process-cols, 5)));
+  right: calc(100% / (2 * var(--process-cols, 5)));
   height: 6px;
   background: #E2E8F0;
   border-radius: 999px;
@@ -1058,10 +1059,10 @@ a.btn.btn-outline:hover,
 .process-line-active {
   position: absolute;
   top: 55px;
-  left: 100px;
+  left: calc(100% / (2 * var(--process-cols, 5)));
   height: 6px;
   width: 0%;
-  max-width: calc(100% - 200px);
+  max-width: calc(100% - (100% / var(--process-cols, 5)));
   background: linear-gradient(90deg, #23B6F3 0%, #D70E69 25%, #48B25F 50%, #F5BF0F 75%, #23B6F3 100%);
   border-radius: 999px;
   z-index: 1;
@@ -1073,8 +1074,8 @@ a.btn.btn-outline:hover,
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(var(--process-cols, 5), 1fr);
+  gap: 18px;
   align-items: start;
 }
 
