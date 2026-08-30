@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   if (chatClose) chatClose.addEventListener('click', closeChat);
 
-  /* ---------- chatbot auto-reply ---------- */
+  /* ---------- chatbot auto-reply (Zedex AI Assistant & WhatsApp Integration) ---------- */
   var chatBody = document.querySelector('.chat-body');
   var chatInput = document.querySelector('.chat-foot input');
   var chatSend = document.querySelector('.chat-foot button');
@@ -194,31 +194,31 @@ document.addEventListener('DOMContentLoaded', function () {
   var KB = [
     {
       match: ['service', 'services', 'what do you do', 'offer'],
-      reply: 'We build Websites & Web Apps, E-commerce Stores, CRM & ERP Systems, WhatsApp API & Bots, AI & Automation, Mobile Apps, Digital Marketing & SEO, Branding & Creative, and Cloud & Infrastructure. See the full list on our <a href="' + (window.__ZX_ROOT || '') + 'services.html">Services page</a>.'
+      reply: 'We build Websites & Web Apps, E-commerce Stores, CRM & ERP Systems, WhatsApp API & Bots, AI & Automation, Mobile Apps, Digital Marketing & SEO, Branding & Creative, and Cloud & Infrastructure.'
     },
     {
       match: ['contact', 'phone', 'number', 'call', 'reach'],
-      reply: 'You can call or WhatsApp us at <b>+91 63827 21178</b>, or email <b>hello@zavyx.in</b>. We usually reply within a few hours.'
+      reply: 'You can call or WhatsApp us directly at <b>+91 63827 21178</b>, or email <b>hello@zavyx.in</b>. Our team responds promptly!'
     },
     {
       match: ['location', 'address', 'where', 'office'],
-      reply: 'We are based at #2155, Fortune City, Global Market – Texvalley, NH 544 Bengaluru–Cochin National Highway, Chithode, Erode – 638102, Tamil Nadu, India.'
+      reply: 'Our headquarters are located at #2155, Fortune City, Global Market – Texvalley, NH 544 Bengaluru–Cochin National Highway, Chithode, Erode – 638102, Tamil Nadu, India.'
     },
     {
       match: ['hour', 'timing', 'open', 'time'],
-      reply: 'Our team is available Monday–Saturday, 9:30 AM – 7:00 PM IST. Message us anytime — WhatsApp replies are usually the fastest.'
+      reply: 'Our office hours are Monday–Saturday, 9:30 AM – 7:00 PM IST. WhatsApp messages are monitored 24/7!'
     },
     {
       match: ['quote', 'price', 'cost', 'pricing', 'budget'],
-      reply: 'Pricing depends on scope, so the quickest way is to share a few details with us. Tap "Get a Quote" or WhatsApp us and we\'ll get back with an estimate.'
+      reply: 'We customize estimates based on your exact project requirements. Click below to message our team on WhatsApp for an instant quote!'
     },
     {
       match: ['whatsapp'],
-      reply: 'Yes — our WhatsApp number is the same as our phone number: <b>+91 63827 21178</b>. Tap the WhatsApp icon at the bottom-right anytime.'
+      reply: 'Connect directly with us on WhatsApp at <b>+91 63827 21178</b> or click the WhatsApp button below.'
     },
     {
-      match: ['hi', 'hello', 'hey'],
-      reply: 'Hey there! 👋 I\'m the ZAVYX assistant. Ask me about our services, pricing, location, or working hours — or tap a quick reply below.'
+      match: ['hi', 'hello', 'hey', 'zedex'],
+      reply: 'Hi! 👋 I\'m <b>Zedex</b>, your ZAVYX AI assistant. How can I help you today? Type your query below or connect directly on WhatsApp!'
     }
   ];
 
@@ -227,24 +227,45 @@ document.addEventListener('DOMContentLoaded', function () {
     var found = KB.find(function (k) {
       return k.match.some(function (m) { return lower.indexOf(m) !== -1; });
     });
-    return found ? found.reply : 'Good question — for anything specific, our team can help directly. Tap "Chat on WhatsApp" below, or send us an email at hello@zavyx.in.';
+    return found ? found.reply : 'Thanks for reaching out! For instant support and detailed project pricing, click below to chat with our team on WhatsApp.';
   }
 
-  function addMsg(text, who) {
+  function addMsg(text, who, userQueryForWa) {
     if (!chatBody) return;
     var div = document.createElement('div');
     div.className = 'msg ' + who;
     div.innerHTML = text;
+
+    if (who === 'bot' && userQueryForWa) {
+      var waUrl = 'https://wa.me/916382721178?text=' + encodeURIComponent('Hello Zedex & ZAVYX Team, ' + userQueryForWa);
+      var waBtn = document.createElement('div');
+      waBtn.style.marginTop = '8px';
+      waBtn.innerHTML = '<a href="' + waUrl + '" target="_blank" rel="noopener" class="msg-wa-btn"><i data-lucide="message-square" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> Chat on WhatsApp</a>';
+      div.appendChild(waBtn);
+    }
+
     chatBody.appendChild(div);
     chatBody.scrollTop = chatBody.scrollHeight;
+    if (typeof lucide !== 'undefined') lucide.createIcons();
   }
 
   function handleUserText(text) {
-    if (!text.trim()) return;
-    addMsg(text, 'user');
-    chatInput.value = '';
+    if (!text || !text.trim()) return;
+    var queryText = text.trim();
+    addMsg(queryText, 'user');
+    if (chatInput) chatInput.value = '';
+
+    // Show typing animation
+    var typingDiv = document.createElement('div');
+    typingDiv.className = 'msg bot typing-indicator';
+    typingDiv.innerHTML = '<span style="opacity:0.75;font-style:italic;font-size:0.82rem;">Zedex is typing...</span>';
+    chatBody.appendChild(typingDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+
     setTimeout(function () {
-      addMsg(botReply(text), 'bot');
+      if (typingDiv.parentNode) typingDiv.parentNode.removeChild(typingDiv);
+      var replyText = botReply(queryText);
+      addMsg(replyText, 'bot', queryText);
     }, 450);
   }
 
