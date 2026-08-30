@@ -2253,6 +2253,7 @@ footer ul li a:hover {
   border-radius: 50% !important;
   transform: translate(-50%, -50%) scale(1.15) !important;
 }
+.fab-call,
 .fab-mail {
   background: linear-gradient(135deg, #23B6F3, #0284C7) !important;
   border-color: #23B6F3 !important;
