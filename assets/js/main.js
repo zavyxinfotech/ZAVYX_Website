@@ -467,4 +467,61 @@ document.addEventListener('DOMContentLoaded', function () {
 
   initPinnedWhatWeDo();
 
+  /* ---------- Pinned Process Timeline Scroll Handler ---------- */
+  function initPinnedProcessSection() {
+    var processTracks = document.querySelectorAll('.process-pinned-track');
+    if (!processTracks.length) return;
+
+    function onScroll() {
+      processTracks.forEach(function (track) {
+        if (window.innerWidth <= 992) {
+          var steps = track.querySelectorAll('.process-wave-step');
+          steps.forEach(function (step) {
+            step.classList.add('step-active');
+          });
+          return;
+        }
+
+        var rect = track.getBoundingClientRect();
+        var trackHeight = track.offsetHeight - window.innerHeight;
+        if (trackHeight <= 0) return;
+
+        var progress = -rect.top / trackHeight;
+        progress = Math.max(0, Math.min(1, progress));
+
+        var activeIndex = Math.min(4, Math.floor(progress * 5));
+        var steps = track.querySelectorAll('.process-wave-step');
+        var lineActive = track.querySelector('.process-line-active');
+        var fillBar = track.querySelector('.indicator-fill');
+        var stepNumEl = track.querySelector('.current-step-num');
+
+        steps.forEach(function (step, i) {
+          if (i <= activeIndex) {
+            step.classList.add('step-active');
+          } else {
+            step.classList.remove('step-active');
+          }
+        });
+
+        var linePct = (activeIndex / 4) * 100;
+        if (lineActive) {
+          lineActive.style.width = linePct + '%';
+        }
+
+        if (fillBar) {
+          fillBar.style.width = Math.min(100, Math.max(20, ((activeIndex + 1) / 5) * 100)) + '%';
+        }
+
+        if (stepNumEl) {
+          stepNumEl.textContent = '0' + (activeIndex + 1);
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    onScroll();
+  }
+
+  initPinnedProcessSection();
 });

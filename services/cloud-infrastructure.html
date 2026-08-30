@@ -87,13 +87,76 @@
   </div>
 </section>
 
-<section class="section-tight">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">Our process</span>
-      <h2>How we deliver this service</h2>
+<section class="section-tight section-process-wave">
+  <div class="process-pinned-track">
+    <div class="process-sticky-stage">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow">Our Process</span>
+          <h2>How we deliver this service</h2>
+        </div>
+        <div class="process-wave-wrapper">
+          <div class="process-line-bg"></div>
+          <div class="process-line-active"></div>
+          <div class="process-wave-grid">
+            <div class="process-wave-step theme-cyan step-active" data-step="1">
+              <div class="wave-node">
+                <span class="step-num">01</span>
+                <div class="node-icon"><i data-lucide="server"></i></div>
+              </div>
+              <div class="wave-content">
+                <h3>Infra & Security Audit</h3>
+                <p>Evaluating server loads, security vulnerability, and hosting bottlenecks.</p>
+              </div>
+            </div>
+            <div class="process-wave-step theme-pink" data-step="2">
+              <div class="wave-node">
+                <span class="step-num">02</span>
+                <div class="node-icon"><i data-lucide="cloud"></i></div>
+              </div>
+              <div class="wave-content">
+                <h3>Cloud Architecture</h3>
+                <p>Designing high-availability AWS, DigitalOcean, and Docker cluster topologies.</p>
+              </div>
+            </div>
+            <div class="process-wave-step theme-green" data-step="3">
+              <div class="wave-node">
+                <span class="step-num">03</span>
+                <div class="node-icon"><i data-lucide="git-pull-request"></i></div>
+              </div>
+              <div class="wave-content">
+                <h3>CI/CD Pipeline Build</h3>
+                <p>Automating zero-downtime deployments with GitHub Actions and Nginx.</p>
+              </div>
+            </div>
+            <div class="process-wave-step theme-yellow" data-step="4">
+              <div class="wave-node">
+                <span class="step-num">04</span>
+                <div class="node-icon"><i data-lucide="shield"></i></div>
+              </div>
+              <div class="wave-content">
+                <h3>Hardening & Migration</h3>
+                <p>Configuring SSL certificates, UFW firewalls, and encrypted backups.</p>
+              </div>
+            </div>
+            <div class="process-wave-step theme-cyan" data-step="5">
+              <div class="wave-node">
+                <span class="step-num">05</span>
+                <div class="node-icon"><i data-lucide="activity"></i></div>
+              </div>
+              <div class="wave-content">
+                <h3>24/7 Monitoring</h3>
+                <p>Setting up Grafana/Prometheus health metrics and instant incident alerts.</p>
+              </div>
+            </div>
+          </div>
+          <div class="process-scroll-indicator">
+            <span class="indicator-step">Step <b class="current-step-num">01</b> / 05</span>
+            <div class="indicator-bar"><div class="indicator-fill"></div></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="process-grid"><div class="process-step reveal"><span class="num">01</span><h3>Assess current setup</h3></div><div class="process-step reveal"><span class="num">02</span><h3>Design cloud architecture</h3></div><div class="process-step reveal"><span class="num">03</span><h3>Configure servers & pipelines</h3></div><div class="process-step reveal"><span class="num">04</span><h3>Migrate data & test security</h3></div><div class="process-step reveal"><span class="num">05</span><h3>Set up ongoing monitoring</h3></div></div>
   </div>
 </section>
 
@@ -103,7 +166,16 @@
       <span class="eyebrow">Technology</span>
       <h2>Tools & technologies we use</h2>
     </div>
-    <div class="tech-strip"><span class="tech-chip">AWS / DigitalOcean / Vercel</span><span class="tech-chip">Docker</span><span class="tech-chip">Nginx / Linux</span><span class="tech-chip">GitHub Actions</span></div>
+    <div class="tech-strip">
+      <span class="tech-chip theme-cyan"><i data-lucide="cloud"></i> Amazon Web Services (AWS)</span>
+      <span class="tech-chip theme-pink"><i data-lucide="server"></i> DigitalOcean Droplets</span>
+      <span class="tech-chip theme-green"><i data-lucide="box"></i> Docker Containers</span>
+      <span class="tech-chip theme-yellow"><i data-lucide="git-branch"></i> GitHub Actions CI/CD</span>
+      <span class="tech-chip theme-cyan"><i data-lucide="cpu"></i> Nginx Web Server</span>
+      <span class="tech-chip theme-pink"><i data-lucide="terminal"></i> Ubuntu Linux</span>
+      <span class="tech-chip theme-green"><i data-lucide="shield-check"></i> Cloudflare WAF</span>
+      <span class="tech-chip theme-yellow"><i data-lucide="activity"></i> Grafana Monitoring</span>
+    </div>
   </div>
 </section>
 
