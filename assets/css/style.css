@@ -1558,28 +1558,34 @@ a.btn.btn-outline:hover,
    OUR TEAM SECTION - REDESIGN (4-COLOR THEME & ACCENT RINGS)
    ========================================================= */
 .team-grid {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
   gap: 28px !important;
 }
 
+.team-card {
+  flex: 0 0 calc(25% - 22px) !important;
+  max-width: calc(25% - 22px) !important;
+}
+
 @media (max-width: 1100px) {
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 24px !important;
+  .team-card {
+    flex: 0 0 calc(50% - 14px) !important;
+    max-width: calc(50% - 14px) !important;
   }
 }
 
 @media (max-width: 600px) {
-  .team-grid {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
+  .team-card {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
   }
 }
 
 .team-card {
-  background: #FFFFFF !important;
-  border: 1px solid #E2E8F0 !important;
+  background: transparent !important;
+  border: none !important;
   border-radius: 24px !important;
   padding: 36px 24px 30px !important;
   text-align: center !important;
@@ -1588,7 +1594,7 @@ a.btn.btn-outline:hover,
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .team-card:hover {
@@ -1679,7 +1685,9 @@ a.btn.btn-outline:hover,
   text-transform: uppercase !important;
   padding: 4px 14px !important;
   border-radius: 999px !important;
-  border: 1px solid rgba(15, 23, 42, 0.06) !important;
+  border: none !important;
+  background: transparent !important;
+  color: #0F172A !important;
   margin-bottom: 14px !important;
   display: inline-block !important;
 }
@@ -1692,31 +1700,27 @@ a.btn.btn-outline:hover,
 }
 
 /* YELLOW THEME (#F5BF0F) */
-html body .team-card.t-yellow h3, html body .band-dark .team-card.t-yellow h3 { color: #F5BF0F !important; }
-html body .team-card.t-yellow .team-role { color: #F5BF0F !important; background: rgba(245, 191, 15, 0.12) !important; }
+html body .team-card.t-yellow h3, html body .band-dark .team-card.t-yellow h3 { color: #0F172A !important; }
+html body .team-card.t-yellow .team-role { color: #0F172A !important; background: transparent !important; }
 .team-card.t-yellow .team-avatar-ring::before { border-color: #F5BF0F !important; border-left-color: rgba(245, 191, 15, 0.15) !important; }
-.team-card.t-yellow:hover { border-color: #F5BF0F !important; box-shadow: 0 20px 40px -10px rgba(245, 191, 15, 0.3), 0 0 0 2px #F5BF0F !important; }
 .team-card.t-yellow:hover .team-avatar-ring::before { border-left-color: #F5BF0F !important; transform: rotate(330deg) !important; filter: drop-shadow(0 6px 14px rgba(245, 191, 15, 0.5)) !important; }
 
 /* BLUE THEME (#23B6F3) */
-html body .team-card.t-blue h3, html body .band-dark .team-card.t-blue h3 { color: #23B6F3 !important; }
-html body .team-card.t-blue .team-role { color: #23B6F3 !important; background: rgba(35, 182, 243, 0.12) !important; }
+html body .team-card.t-blue h3, html body .band-dark .team-card.t-blue h3 { color: #0F172A !important; }
+html body .team-card.t-blue .team-role { color: #0F172A !important; background: transparent !important; }
 .team-card.t-blue .team-avatar-ring::before { border-color: #23B6F3 !important; border-left-color: rgba(35, 182, 243, 0.15) !important; }
-.team-card.t-blue:hover { border-color: #23B6F3 !important; box-shadow: 0 20px 40px -10px rgba(35, 182, 243, 0.3), 0 0 0 2px #23B6F3 !important; }
 .team-card.t-blue:hover .team-avatar-ring::before { border-left-color: #23B6F3 !important; transform: rotate(330deg) !important; filter: drop-shadow(0 6px 14px rgba(35, 182, 243, 0.5)) !important; }
 
 /* GREEN THEME (#48B25F) */
-html body .team-card.t-green h3, html body .band-dark .team-card.t-green h3 { color: #48B25F !important; }
-html body .team-card.t-green .team-role { color: #48B25F !important; background: rgba(72, 178, 95, 0.12) !important; }
+html body .team-card.t-green h3, html body .band-dark .team-card.t-green h3 { color: #0F172A !important; }
+html body .team-card.t-green .team-role { color: #0F172A !important; background: transparent !important; }
 .team-card.t-green .team-avatar-ring::before { border-color: #48B25F !important; border-left-color: rgba(72, 178, 95, 0.15) !important; }
-.team-card.t-green:hover { border-color: #48B25F !important; box-shadow: 0 20px 40px -10px rgba(72, 178, 95, 0.3), 0 0 0 2px #48B25F !important; }
 .team-card.t-green:hover .team-avatar-ring::before { border-left-color: #48B25F !important; transform: rotate(330deg) !important; filter: drop-shadow(0 6px 14px rgba(72, 178, 95, 0.5)) !important; }
 
 /* PINK THEME (#D70E69) */
-html body .team-card.t-pink h3, html body .band-dark .team-card.t-pink h3 { color: #D70E69 !important; }
-html body .team-card.t-pink .team-role { color: #D70E69 !important; background: rgba(215, 14, 105, 0.12) !important; }
+html body .team-card.t-pink h3, html body .band-dark .team-card.t-pink h3 { color: #0F172A !important; }
+html body .team-card.t-pink .team-role { color: #0F172A !important; background: transparent !important; }
 .team-card.t-pink .team-avatar-ring::before { border-color: #D70E69 !important; border-left-color: rgba(215, 14, 105, 0.15) !important; }
-.team-card.t-pink:hover { border-color: #D70E69 !important; box-shadow: 0 20px 40px -10px rgba(215, 14, 105, 0.3), 0 0 0 2px #D70E69 !important; }
 .team-card.t-pink:hover .team-avatar-ring::before { border-left-color: #D70E69 !important; transform: rotate(330deg) !important; filter: drop-shadow(0 6px 14px rgba(215, 14, 105, 0.5)) !important; }
 
 /* =========================================================
@@ -1729,10 +1733,10 @@ html body .team-card.t-pink .team-role { color: #D70E69 !important; background: 
 .band-dark .eyebrow::before{color:var(--green);}
 
 /* TEAM CARD HEADING COLOR OVERRIDES */
-.team-card.t-yellow h3, .band-dark .team-card.t-yellow h3 { color: #F5BF0F !important; }
-.team-card.t-blue h3, .band-dark .team-card.t-blue h3 { color: #23B6F3 !important; }
-.team-card.t-green h3, .band-dark .team-card.t-green h3 { color: #48B25F !important; }
-.team-card.t-pink h3, .band-dark .team-card.t-pink h3 { color: #D70E69 !important; }
+.team-card.t-yellow h3, .band-dark .team-card.t-yellow h3 { color: #0F172A !important; }
+.team-card.t-blue h3, .band-dark .team-card.t-blue h3 { color: #0F172A !important; }
+.team-card.t-green h3, .band-dark .team-card.t-green h3 { color: #0F172A !important; }
+.team-card.t-pink h3, .band-dark .team-card.t-pink h3 { color: #0F172A !important; }
 
 .vm-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
 @media (max-width:768px){.vm-grid{grid-template-columns:1fr;}}
@@ -3999,6 +4003,58 @@ section.in {
     min-height: 100vh !important;
     min-height: 100dvh !important;
     padding: 120px 0 60px 0 !important;
+  }
+}
+
+/* =========================================================
+   MOBILE BUTTON SIZE OPTIMIZATIONS & VIEWPORT OVERFLOW FIXES
+   ========================================================= */
+@media (max-width: 600px) {
+  /* Global Button Sizing Reduction for Mobile Screen Fit */
+  .btn, .btn-primary, .btn-secondary, .btn-outline, .btn-ghost, .btn-lg, .btn-sm, button:not(.nav-toggle):not(.fab):not(.chat-close) {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 11px 18px !important;
+    font-size: 0.88rem !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    text-align: center !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Action Button Groups - Vertical Stack on Mobile View */
+  .hero-actions, .svc-hero-actions, .cta-actions, .section-cta .btn-group {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  .hero-actions .btn, .svc-hero-actions .btn, .cta-actions .btn {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  
+  /* Quick Replies and Form Controls Scaling */
+  .qr-btn {
+    font-size: 0.75rem !important;
+    padding: 6px 12px !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn, .btn-primary, .btn-secondary, .btn-outline, .btn-ghost, .btn-lg, .btn-sm {
+    padding: 10px 15px !important;
+    font-size: 0.84rem !important;
+    letter-spacing: normal !important;
+  }
+  .section-head h2 {
+    font-size: 1.85rem !important;
   }
 }
 
