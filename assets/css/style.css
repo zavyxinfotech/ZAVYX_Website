@@ -227,11 +227,14 @@ a.btn.btn-outline:hover,
   display: block;
 }
 @media (max-width: 960px) {
-  .brand img { height: 60px !important; max-height: 64px !important; }
+  .brand img { height: 64px !important; max-height: 68px !important; }
+}
+@media (max-width: 600px) {
+  .brand img { height: 72px !important; max-height: 76px !important; }
 }
 @media (max-width: 480px) {
   .brand { padding: 0 !important; }
-  .brand img { height: 50px !important; max-height: 54px !important; }
+  .brand img { height: 72px !important; max-height: 76px !important; }
 }
 
 .nav-links {
@@ -422,26 +425,26 @@ a.btn.btn-outline:hover,
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 5px;
   background: #FFFFFF !important;
-  width: 60px !important;
-  height: 60px !important;
-  min-width: 60px !important;
-  min-height: 60px !important;
-  border-radius: 50%;
-  border: 2.5px solid #23B6F3 !important;
-  box-shadow: 0 6px 22px rgba(35, 182, 243, 0.3) !important;
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+  min-height: 46px !important;
+  border-radius: 10px;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.10) !important;
   padding: 0;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .nav-toggle:hover {
-  transform: scale(1.08) !important;
-  box-shadow: 0 8px 28px rgba(35, 182, 243, 0.45) !important;
+  transform: scale(1.06) !important;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.18) !important;
 }
 .nav-toggle span {
-  width: 30px !important;
-  height: 3.5px !important;
+  width: 22px !important;
+  height: 2.5px !important;
   border-radius: 4px !important;
   display: block;
   transition: transform 0.2s ease;
@@ -2718,46 +2721,58 @@ footer ul li a:hover {
 /* Mobile Responsiveness for Header Hamburger, Floating Action Icons & Chat Panel */
 @media (max-width: 600px) {
   .nav-toggle {
-    width: 44px !important;
-    height: 44px !important;
-    min-width: 44px !important;
-    padding: 8px !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    border-radius: 8px !important;
   }
   .nav-toggle span {
+    width: 18px !important;
     height: 2px !important;
   }
   .fab-stack {
-    right: 12px !important;
-    bottom: 12px !important;
-    gap: 10px !important;
+    right: 10px !important;
+    bottom: 10px !important;
+    gap: 8px !important;
     z-index: 1000 !important;
   }
   .fab {
-    width: 46px !important;
-    height: 46px !important;
+    width: 40px !important;
+    height: 40px !important;
   }
-  .fab svg, .fab img, .fab i {
-    width: 24px !important;
-    height: 24px !important;
-    font-size: 24px !important;
+  .fab svg, .fab i {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 20px !important;
   }
   .fab-bot-3d-img {
-    width: 46px !important;
-    height: 46px !important;
-    min-width: 46px !important;
-    min-height: 46px !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+  }
+  .fab-spin-border {
+    inset: -3px !important;
   }
   .fab-label {
     display: none !important;
   }
+  /* Hero and page sections get bottom padding so content clears the FAB stack */
+  .hero, .svc-hero {
+    padding-bottom: 140px !important;
+  }
+  section {
+    scroll-margin-bottom: 140px;
+  }
   .chat-panel {
-    right: 12px !important;
-    left: 12px !important;
-    bottom: 72px !important; /* Cleanly positioned above mobile floating buttons */
+    right: 10px !important;
+    left: 10px !important;
+    bottom: 60px !important;
     width: auto !important;
-    max-width: calc(100vw - 24px) !important;
-    height: 440px !important;
-    max-height: calc(100vh - 90px) !important;
+    max-width: calc(100vw - 20px) !important;
+    height: 420px !important;
+    max-height: calc(100vh - 80px) !important;
     z-index: 9999 !important;
   }
 }
@@ -2778,8 +2793,11 @@ footer ul li a:hover {
 .chat-foot button{width:38px; height:38px; border-radius:50%; background:var(--blue); color:#fff; border:0; flex:none;}
 
 @media (max-width:480px){
-  .chat-panel{right:12px; bottom:84px; width:calc(100vw - 24px);}
-  .fab-stack{right:14px; bottom:14px;}
+  .chat-panel{right:10px !important; bottom:58px !important; width:calc(100vw - 20px) !important;}
+  .fab-stack{right:10px !important; bottom:10px !important;}
+  .fab { width: 38px !important; height: 38px !important; }
+  .fab svg, .fab i { width: 18px !important; height: 18px !important; font-size: 18px !important; }
+  .fab-bot-3d-img { width: 38px !important; height: 38px !important; min-width: 38px !important; min-height: 38px !important; }
 }
 
 /* =========================================================
