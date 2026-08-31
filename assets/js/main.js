@@ -45,6 +45,13 @@ document.addEventListener('DOMContentLoaded', function () {
   var navLinks = document.querySelector('.nav-links');
   var navClose = document.querySelector('.nav-close');
 
+  if (navLinks && !document.querySelector('.mobile-call-now')) {
+    var callLi = document.createElement('li');
+    callLi.className = 'mobile-call-now';
+    callLi.innerHTML = '<a href="tel:+916382721178" class="btn btn-primary" style="display:flex; justify-content:center; text-align:center; padding: 14px; font-size:1.1rem; border-radius:12px; background:linear-gradient(135deg, #23B6F3, #D70E69); color:white; width: 100%; box-shadow: 0 4px 15px rgba(215, 14, 105, 0.25);"><i data-lucide="phone" style="width: 18px; margin-right: 6px;"></i> Call Now</a>';
+    navLinks.appendChild(callLi);
+  }
+
   function closeMobileNav() {
     if (navLinks) navLinks.classList.remove('open');
     var navServices = document.querySelector('.nav-services');
