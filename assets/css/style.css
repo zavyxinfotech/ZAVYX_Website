@@ -2322,6 +2322,35 @@ footer ul li a:hover {
   color: var(--blue-dark) !important;
   text-decoration: underline;
 }
+/* =========================================
+   FOOTER SERVICES
+========================================= */
+
+.footer-services {
+  grid-column: span 2;
+}
+
+.footer-services-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 50px;
+  row-gap: 10px;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-services-list li {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-services-list a {
+  display: block;
+  text-decoration: none;
+  white-space: normal;
+}
 
 /* =========================================================
    FAQ SECTION IMAGE CARD
