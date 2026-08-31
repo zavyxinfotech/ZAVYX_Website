@@ -665,6 +665,30 @@ a.btn.btn-outline:hover,
   display: none !important;
 }
 
+@media (max-width: 768px) {
+  .hero-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 12px 10px !important;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    justify-content: center;
+  }
+
+  .hero-actions .btn i {
+    width: 16px;
+    height: 16px;
+  }
+}
+
 /* Service Specific Hero Background Images */
 .svc-hero.hero-websites-web-apps {
   background: radial-gradient(circle at 15% 20%, rgba(35,182,243,.14), transparent 45%),
@@ -737,6 +761,7 @@ a.btn.btn-outline:hover,
               url('../images/bg_3d_challenge_solution.png') center center/cover no-repeat,
               var(--paper) !important;
 }
+
 
 /* Service Hero 2-Column Layout & Visual Card */
 .svc-hero-grid {
