@@ -15,20 +15,22 @@ document.addEventListener('DOMContentLoaded', function () {
       if (link.querySelector('.nav-char')) return;
       var nodes = Array.from(link.childNodes);
       link.innerHTML = '';
+      var textWrapper = document.createElement('span');
+      textWrapper.className = 'nav-text-wrapper';
       var charIndex = 0;
       nodes.forEach(function(node) {
         if (node.nodeType === Node.TEXT_NODE) {
-          var text = node.textContent;
+          var text = node.textContent.trim();
           for (var i = 0; i < text.length; i++) {
             var ch = text[i];
             if (ch === ' ') {
-              link.appendChild(document.createTextNode(' '));
+              textWrapper.appendChild(document.createTextNode('\u00A0'));
             } else {
               var span = document.createElement('span');
               span.className = 'nav-char';
               span.textContent = ch;
               span.style.animationDelay = (charIndex * 0.04) + 's';
-              link.appendChild(span);
+              textWrapper.appendChild(span);
               charIndex++;
             }
           }
@@ -36,19 +38,23 @@ document.addEventListener('DOMContentLoaded', function () {
           link.appendChild(node);
         }
       });
+      link.insertBefore(textWrapper, link.firstChild);
     });
   }
   initNavCharRotation();
 
   /* ---------- mobile nav toggle & sidebar close ---------- */
   var navToggle = document.querySelector('.nav-toggle');
+  if (navToggle && navToggle.children.length === 0) {
+    navToggle.innerHTML = '<span></span><span></span><span></span>';
+  }
   var navLinks = document.querySelector('.nav-links');
   var navClose = document.querySelector('.nav-close');
 
   if (navLinks && !document.querySelector('.mobile-call-now')) {
     var callLi = document.createElement('li');
     callLi.className = 'mobile-call-now';
-    callLi.innerHTML = '<a href="tel:+916382721178" class="btn btn-primary" style="display:flex; justify-content:center; text-align:center; padding: 14px; font-size:1.1rem; border-radius:12px; background:linear-gradient(135deg, #23B6F3, #D70E69); color:white; width: 100%; box-shadow: 0 4px 15px rgba(215, 14, 105, 0.25);"><i data-lucide="phone" style="width: 18px; margin-right: 6px;"></i> Call Now</a>';
+    callLi.innerHTML = '<a href="tel:+916382721178" class="mobile-call-now-btn"><i data-lucide="phone" style="width: 18px; margin-right: 6px;"></i> Call Now</a>';
     navLinks.appendChild(callLi);
   }
 

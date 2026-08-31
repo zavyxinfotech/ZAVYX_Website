@@ -227,14 +227,14 @@ a.btn.btn-outline:hover,
   display: block;
 }
 @media (max-width: 960px) {
-  .brand img { height: 64px !important; max-height: 68px !important; }
+  .brand img { height: 85px !important; max-height: 90px !important; }
 }
 @media (max-width: 600px) {
-  .brand img { height: 72px !important; max-height: 76px !important; }
+  .brand img { height: 85px !important; max-height: 90px !important; }
 }
 @media (max-width: 480px) {
   .brand { padding: 0 !important; }
-  .brand img { height: 72px !important; max-height: 76px !important; }
+  .brand img { height: 85px !important; max-height: 90px !important; }
 }
 
 .nav-links {
@@ -510,24 +510,27 @@ a.btn.btn-outline:hover,
 
 .nav-links.open {
   display: flex !important;
-  position: fixed !important;
-  inset: 0 0 0 auto !important;
-  top: 0 !important;
-  height: 100vh !important;
-  width: 50vw !important; /* Decreased sidebar menu width to half */
-  background: rgba(255, 255, 255, 0.70) !important; /* Glassmorphism */
+  position: absolute !important;
+  inset: auto !important;
+  top: 70px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: calc(100vh - 70px) !important;
+  background: rgba(255, 255, 255, 0.85) !important; /* Glassmorphism */
   flex-direction: column !important;
   align-items: stretch !important;
-  padding: 60px 24px 24px !important;
+  padding: 12px 16px !important;
   justify-content: flex-start !important;
-  box-shadow: -10px 0 40px rgba(15, 23, 42, 0.15) !important;
-  transform: translateX(0) !important;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.15) !important;
+  transform: none !important;
   z-index: 2000 !important;
-  gap: 6px !important;
+  gap: 4px !important;
   overflow-y: auto !important;
   backdrop-filter: blur(24px) !important;
   -webkit-backdrop-filter: blur(24px) !important;
 }
+.nav-links.open .nav-close { display: none !important; }
 .nav-char {
   display: inline !important;
   margin: 0 !important;
@@ -535,14 +538,24 @@ a.btn.btn-outline:hover,
   letter-spacing: normal !important;
   word-spacing: normal !important;
 }
+.nav-text-wrapper {
+  display: inline-flex !important;
+  align-items: center !important;
+}
 .nav-links.open > li > a {
   display: block !important;
-  font-size: 1.05rem !important;
-  padding: 12px 18px !important;
-  border-radius: 12px !important;
+  font-size: 0.85rem !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
   color: #0F172A !important;
   letter-spacing: normal !important;
   word-spacing: normal !important;
+  transition: all 0.2s ease !important;
+}
+.nav-links.open > li > a:not(.mobile-call-now-btn):hover,
+.nav-links.open > li > a:not(.mobile-call-now-btn):active {
+  background: rgba(35,182,243, 0.1) !important;
+  color: #0284C7 !important;
 }
 
 /* Sidebar Dropdown Accordion inside Navigation Drawer (.nav-links.open) */
@@ -580,13 +593,15 @@ a.btn.btn-outline:hover,
   animation: megaAccordionExpand 0.25s ease-out forwards;
 }
 .nav-links.open .mega a {
-  padding: 12px 18px !important;
-  font-size: 1.05rem !important;
+  padding: 6px 12px !important;
+  font-size: 0.78rem !important;
   color: #0F172A !important;
-  border-radius: 12px !important;
+  border-radius: 6px !important;
   display: flex !important;
-  align-items: center !important;
-  gap: 10px !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  line-height: 1.2 !important;
+  flex-wrap: nowrap !important;
 }
 
 @media (max-width: 960px) {
@@ -603,6 +618,24 @@ a.btn.btn-outline:hover,
     box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
   }
 .mobile-call-now { display: none !important; }
+.nav-links.open > li > a.mobile-call-now-btn, .mobile-call-now-btn {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 12px !important;
+  font-size: 1rem !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #23B6F3, #D70E69) !important;
+  color: #FFFFFF !important;
+  width: 100% !important;
+  box-shadow: 0 4px 15px rgba(215, 14, 105, 0.25) !important;
+  font-weight: 600 !important;
+}
+.nav-links.open > li > a.mobile-call-now-btn:hover, .mobile-call-now-btn:hover {
+  box-shadow: 0 6px 20px rgba(215, 14, 105, 0.35) !important;
+  transform: translateY(-2px) !important;
+}
 @media (max-width: 960px) {
   .nav-links.open .mobile-call-now {
     display: block !important;
@@ -2292,14 +2325,14 @@ footer {
 footer h4 {
   color: #0F172A !important;
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1rem !important;
   font-weight: 800;
   letter-spacing: -0.01em;
   margin-bottom: 22px;
 }
 footer p, footer ul li, footer span {
   color: #334155 !important;
-  font-size: 1.04rem;
+  font-size: 0.9rem !important;
   font-weight: 500;
   opacity: 1;
   line-height: 1.8;
@@ -2364,18 +2397,49 @@ footer ul li a:hover {
 }
 .footer-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 24px 0;
-  font-size: 0.88rem;
+  font-size: 0.82rem !important;
   color: #64748B !important;
   flex-wrap: wrap;
   gap: 12px;
+  text-align: center;
 }
 .footer-bottom a {
   color: var(--blue-dark) !important;
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .footer-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 24px !important;
+  }
+  .footer-brand {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  .footer-social {
+    justify-content: center !important;
+    margin-top: 14px !important;
+  }
+  footer ul {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  .footer-services-list {
+    gap: 6px !important;
+  }
+}
+
+
 /* =========================================
    FOOTER SERVICES
 ========================================= */
@@ -4169,4 +4233,26 @@ section.in {
 
 
 
+
+
+/* =========================================================
+   GRID BACKGROUND PATTERN
+   ========================================================= */
+.bg-grid-pattern {
+  position: relative;
+  background-color: var(--paper);
+  z-index: 1;
+}
+.bg-grid-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  z-index: -1;
+  pointer-events: none;
+}
 
