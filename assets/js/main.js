@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
       match: ['hour', 'timing', 'open', 'time'],
-      reply: 'Our office hours are Monday–Saturday, 9:30 AM – 7:00 PM IST. WhatsApp messages are monitored 24/7!'
+      reply: 'Our office hours are Monday–Friday, 9:30 AM – 6:00 PM IST. WhatsApp messages are monitored 24/7!'
     },
     {
       match: ['quote', 'price', 'cost', 'pricing', 'budget'],
