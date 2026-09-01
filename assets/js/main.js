@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function closeMobileNav() {
     if (navLinks) navLinks.classList.remove('open');
+    if (navToggle) navToggle.classList.remove('open');
     var navServices = document.querySelector('.nav-services');
     if (navServices) navServices.classList.remove('open');
   }
@@ -68,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
     navToggle.addEventListener('click', function (e) {
       e.stopPropagation();
       navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
     });
   }
 
@@ -449,7 +451,7 @@ document.addEventListener('DOMContentLoaded', function () {
           if (window.innerWidth > 960) {
             stage3D.style.transform = 'translateX(-260px) translateY(0) scale(0.85)';
           } else {
-            stage3D.style.transform = 'translateY(-170px) scale(0.58)';
+            stage3D.style.transform = 'translateY(-170px) scale(0.80)';
           }
         } else {
           // Laptop in Center position for initial reveal
@@ -508,14 +510,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function onScroll() {
       processTracks.forEach(function (track) {
-        if (window.innerWidth <= 992) {
-          var steps = track.querySelectorAll('.process-wave-step');
-          steps.forEach(function (step) {
-            step.classList.add('step-active');
-          });
-          return;
-        }
-
         var rect = track.getBoundingClientRect();
         var trackHeight = track.offsetHeight - window.innerHeight;
         if (trackHeight <= 0) return;
@@ -540,7 +534,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var linePct = totalSteps > 1 ? (activeIndex / (totalSteps - 1)) * 100 : 100;
         if (lineActive) {
-          lineActive.style.width = linePct + '%';
+          if (window.innerWidth <= 992) {
+            lineActive.style.width = '4px';
+            lineActive.style.height = linePct + '%';
+          } else {
+            lineActive.style.height = '6px';
+            lineActive.style.width = linePct + '%';
+          }
         }
 
         if (fillBar) {
