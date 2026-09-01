@@ -2934,14 +2934,31 @@ footer ul li a:hover {
   .chat-panel {
     left: 16px !important;
     right: auto !important;
-    bottom: 76px !important;
+    top: 86px !important;
+    bottom: auto !important;
     width: calc(100vw - 32px) !important;
     max-width: 360px !important;
-    height: 80vh !important;
-    max-height: 80vh !important;
+    height: calc(100vh - 180px) !important;
+    max-height: 500px !important;
     z-index: 9999 !important;
-    background: rgba(255, 255, 255, 0.7) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(24px) !important;
+  }
+  .chat-body .msg {
+    font-size: 0.72rem !important;
+    padding: 8px 10px !important;
+  }
+  .qr-btn {
+    font-size: 0.65rem !important;
+    padding: 5px 8px !important;
+  }
+  .chat-foot input {
+    font-size: 0.75rem !important;
+    padding: 6px 10px !important;
+  }
+  .chat-foot button svg, .chat-foot button i {
+    width: 16px !important;
+    height: 16px !important;
   }
 }
 
@@ -2958,10 +2975,11 @@ footer ul li a:hover {
 .chat-foot{padding:12px; border-top:1px solid rgba(255, 255, 255, 0.6); display:flex; gap:8px; background:rgba(255, 255, 255, 0.6) !important; backdrop-filter:blur(12px) !important;}
 .chat-foot input{flex:1; border:1px solid rgba(0,0,0,0.1); border-radius:999px; padding:8px 12px; font-size:.85rem; background:rgba(255, 255, 255, 0.85); color:#0F172A;}
 .chat-foot input:focus{outline:none; border-color:var(--blue);}
-.chat-foot button{width:38px; height:38px; border-radius:50%; background:var(--blue); color:#fff; border:0; flex:none;}
+.chat-foot button{width:38px; height:38px; border-radius:50%; background:var(--blue); color:#fff; border:0; flex:none; display:flex; align-items:center; justify-content:center;}
+.chat-foot button svg, .chat-foot button i {width:16px; height:16px; stroke:#ffffff; fill:none; display:flex;}
 
 @media (max-width:480px){
-  .chat-panel{left:16px !important; right:auto !important; bottom:76px !important; width:calc(100vw - 32px) !important; max-width: 360px !important; height: 80vh !important; max-height: 80vh !important;}
+  .chat-panel{left:16px !important; right:auto !important; top:80px !important; bottom:auto !important; width:calc(100vw - 32px) !important; max-width: 360px !important; height: calc(100vh - 160px) !important; max-height: 480px !important;}
   .fab-stack{right:16px !important; bottom:16px !important;}
   .fab { width: 36px !important; height: 36px !important; }
   .fab svg, .fab i { width: 18px !important; height: 18px !important; font-size: 18px !important; }
