@@ -4756,14 +4756,16 @@ footer,
   position: absolute;
   inset: 0;
   opacity: 0;
-  transform: translateY(50px) scale(0.88) rotateX(15deg);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  visibility: hidden;
+  transform: translateY(20px) scale(0.95);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s ease;
   pointer-events: none;
 }
 
 .wwd-card-item.active {
   opacity: 1;
-  transform: translateY(0) scale(1) rotateX(0deg);
+  visibility: visible;
+  transform: translateY(0) scale(1);
   pointer-events: auto;
 }
 

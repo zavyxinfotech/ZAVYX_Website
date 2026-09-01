@@ -112,9 +112,15 @@ document.addEventListener('DOMContentLoaded', function () {
     if (svcLink) {
       svcLink.addEventListener('click', function (e) {
         if (window.innerWidth <= 960 || (navLinks && navLinks.classList.contains('open'))) {
-          e.preventDefault();
-          e.stopPropagation();
-          navServices.classList.toggle('open');
+          var isChevron = e.target.closest('i') || e.target.closest('svg');
+          if (!navServices.classList.contains('open') || isChevron) {
+            e.preventDefault();
+            e.stopPropagation();
+            navServices.classList.toggle('open');
+          } else {
+            // Mega menu is already open, allow natural navigation to services.html
+            closeMobileNav();
+          }
         }
       });
     }
@@ -427,7 +433,10 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-    function onScroll() {
+    var ticking = false;
+
+    function updateScroll() {
+      ticking = false;
       var rect = track.getBoundingClientRect();
       var trackHeight = track.offsetHeight - window.innerHeight;
       if (trackHeight <= 0) return;
@@ -501,9 +510,16 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(updateScroll);
+        ticking = true;
+      }
+    }
+
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
-    onScroll();
+    updateScroll();
   }
 
   initPinnedWhatWeDo();
