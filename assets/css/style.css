@@ -2908,6 +2908,12 @@ footer ul li a:hover {
   transform: scale(1.06);
   box-shadow: 0 4px 14px rgba(35, 182, 243, 0.4);
 }
+.chat-foot button svg, .chat-foot button i {
+  width: 20px;
+  height: 20px;
+  stroke: #ffffff;
+}
+
 
 /* Mobile Responsiveness for Header Hamburger, Floating Action Icons & Chat Panel */
 @media (max-width: 600px) {
@@ -2994,22 +3000,6 @@ footer ul li a:hover {
     stroke-width: 2 !important;
   }
 }
-
-.chat-body{flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; background:transparent !important;}
-.msg{max-width:82%; padding:10px 13px; border-radius:14px; font-size:.85rem; line-height:1.45;}
-.msg.bot{background:rgba(255, 255, 255, 0.65) !important; backdrop-filter:blur(10px) !important; border:1px solid rgba(255, 255, 255, 0.8) !important; border-bottom-left-radius:4px; align-self:flex-start;}
-.msg.user{background:rgba(35, 182, 243, 0.75) !important; backdrop-filter:blur(10px) !important; color:#fff !important; border-bottom-right-radius:4px; align-self:flex-end;}
-.quick-replies{display:flex; flex-wrap:wrap; gap:6px; padding:0 16px 12px; background:transparent !important;}
-.qr-btn{
-  font-size:.7rem !important; padding:6px 10px !important; border-radius:999px; border:1px solid rgba(35, 182, 243, 0.5) !important; background:rgba(255, 255, 255, 0.75) !important; color:var(--ink) !important;
-  transition:border-color .15s ease, color .15s ease;
-}
-.qr-btn:hover{border-color:var(--blue) !important; color:var(--blue) !important;}
-.chat-foot{padding:12px; border-top:1px solid rgba(255, 255, 255, 0.6); display:flex; gap:8px; background:rgba(255, 255, 255, 0.6) !important; backdrop-filter:blur(12px) !important;}
-.chat-foot input{flex:1; border:1px solid rgba(0,0,0,0.1); border-radius:999px; padding:8px 12px; font-size:.85rem; background:rgba(255, 255, 255, 0.85); color:#0F172A;}
-.chat-foot input:focus{outline:none; border-color:var(--blue);}
-.chat-foot button{width:38px; height:38px; border-radius:50%; background:var(--blue); color:#fff; border:0; flex:none; display:flex; align-items:center; justify-content:center;}
-.chat-foot button svg, .chat-foot button i {width:16px; height:16px; stroke:#ffffff; fill:none; display:flex;}
 
 @media (max-width:480px){
   .chat-panel{left:16px !important; right:auto !important; top:80px !important; bottom:auto !important; width:calc(100vw - 32px) !important; max-width: 360px !important; height: calc(100vh - 160px) !important; max-height: 480px !important;}
