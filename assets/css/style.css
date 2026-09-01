@@ -3688,15 +3688,21 @@ section.in {
   }
 
   .wwd-dots-nav {
-    bottom: 5%;
-    gap: 6px;
+    bottom: auto;
+    top: calc(50% + 310px);
+    gap: 5px;
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
   }
   .wwd-dot {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
   }
   .wwd-dot.active {
-    width: 18px;
+    width: 14px;
+    height: 5px;
   }
 
   .wwd-orbit-node {
