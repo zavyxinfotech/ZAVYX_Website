@@ -449,7 +449,7 @@ document.addEventListener('DOMContentLoaded', function () {
           if (window.innerWidth > 960) {
             stage3D.style.transform = 'translateX(-260px) translateY(0) scale(0.85)';
           } else {
-            stage3D.style.transform = 'translateY(-170px) scale(0.80)';
+            stage3D.style.transform = 'translateY(165px) scale(0.72)';
           }
         } else {
           // Laptop in Center position for initial reveal
