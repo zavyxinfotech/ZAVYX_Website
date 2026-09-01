@@ -107,6 +107,7 @@
       </a>
       <nav>
         <ul class="nav-links">
+          <button class="nav-close" aria-label="Close sidebar">&times;</button>
           <li><a href="index.html" class="" >Home</a></li>
           <li><a href="about.html" class="active">About Us</a></li>
           <li class="nav-services">
@@ -365,110 +366,86 @@
   </section>
 
 
-  <!-- SECTION 5 — WHO WE SERVE (HONEYCOMB HEXAGONAL GRID FOR GROWTH STAGES) -->
-  <section class="section cinematic-section hex-growth-section" id="growth-stages-section">
+  <!-- SECTION 5 — WHO WE SERVE (PROFESSIONAL IMAGE CARDS) -->
+  <section class="section cinematic-section">
     <div class="container">
       <div class="section-head center">
         <span class="eyebrow">WHO WE SERVE</span>
         <h2>Built for Businesses at Different Stages of Growth</h2>
       </div>
 
-      <div class="honeycomb-container" id="honeycombContainer">
-        <!-- Row 1: 2 Hexagons -->
-        <div class="hex-row hex-row-1">
-          <div class="hex-card-wrapper" data-hex-index="0">
-            <div class="hex-card c-blue">
-              <div class="hex-card-inner">
-                <div class="hex-icon"><i data-lucide="rocket"></i></div>
-                <h3>Early-Stage Founders</h3>
-                <span class="hex-tag">Startups</span>
-              </div>
-            </div>
-          </div>
-          <div class="hex-card-wrapper" data-hex-index="1">
-            <div class="hex-card c-green">
-              <div class="hex-card-inner">
-                <div class="hex-icon"><i data-lucide="building-2"></i></div>
-                <h3>Small & Medium Businesses</h3>
-                <span class="hex-tag">SMBs</span>
-              </div>
-            </div>
+      <!-- Image Cards Grid for Growth Stages (6 Unique Realistic Photos) -->
+      <div class="growth-grid">
+        <div class="growth-card">
+          <img src="assets/images/growth_startup_founder.png" alt="Startups & Founders" loading="lazy" decoding="async">
+          <div class="growth-overlay">
+            <span class="growth-tag"> STARTUPS & FOUNDERS</span>
+            <h3>Early-Stage Founders</h3>
+            <p>Building MVP products and scaling core digital ideas.</p>
           </div>
         </div>
 
-        <!-- Row 2: 3 Hexagons (Middle is ZAVYX Core Engine Hexagon) -->
-        <div class="hex-row hex-row-2">
-          <div class="hex-card-wrapper" data-hex-index="2">
-            <div class="hex-card c-pink">
-              <div class="hex-card-inner">
-                <div class="hex-icon"><i data-lucide="shopping-bag"></i></div>
-                <h3>E-commerce Brands</h3>
-                <span class="hex-tag">E-Commerce</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="hex-card-wrapper hex-center-brand" data-hex-index="center">
-            <div class="hex-card c-gradient">
-              <div class="hex-card-inner">
-                <div class="hex-icon brand-icon">
-                  <img src="assets/logo/ZAVYX_logo_image.png" alt="ZAVYX Hub" />
-                </div>
-                <h3>ZAVYX TECH</h3>
-                <span class="hex-tag brand-tag">Growth Engine</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="hex-card-wrapper" data-hex-index="3">
-            <div class="hex-card c-yellow">
-              <div class="hex-card-inner">
-                <div class="hex-icon"><i data-lucide="briefcase"></i></div>
-                <h3>Service Agencies</h3>
-                <span class="hex-tag">Agencies</span>
-              </div>
-            </div>
+        <div class="growth-card">
+          <img src="assets/images/growth_smb_business.png" alt="Small & Medium Businesses" loading="lazy" decoding="async">
+          <div class="growth-overlay">
+            <span class="growth-tag"
+              style="background:rgba(72,178,95,0.25); color:#82E6A1; border-color:rgba(72,178,95,0.4);"> SMBs</span>
+            <h3>Small & Medium Businesses</h3>
+            <p>Automating workflows and modernizing IT systems.</p>
           </div>
         </div>
 
-        <!-- Row 3: 2 Hexagons -->
-        <div class="hex-row hex-row-3">
-          <div class="hex-card-wrapper" data-hex-index="4">
-            <div class="hex-card c-cyan">
-              <div class="hex-card-inner">
-                <div class="hex-icon"><i data-lucide="trending-up"></i></div>
-                <h3>Growing Scaleups</h3>
-                <span class="hex-tag">Scaleups</span>
-              </div>
-            </div>
+        <div class="growth-card">
+          <img src="assets/images/growth_ecommerce_store.png" alt="E-commerce Businesses" loading="lazy" decoding="async">
+          <div class="growth-overlay">
+            <span class="growth-tag"
+              style="background:rgba(215,14,105,0.25); color:#F28CB8; border-color:rgba(215,14,105,0.4);">
+              E-COMMERCE</span>
+            <h3>E-commerce Brands</h3>
+            <p>High-converting stores and custom checkout flows.</p>
           </div>
-          <div class="hex-card-wrapper" data-hex-index="5">
-            <div class="hex-card c-purple">
-              <div class="hex-card-inner">
-                <div class="hex-icon"><i data-lucide="cpu"></i></div>
-                <h3>Digital Transformation</h3>
-                <span class="hex-tag">Enterprise</span>
-              </div>
-            </div>
+        </div>
+
+        <div class="growth-card">
+          <img src="assets/images/growth_service_agency.png" alt="Service Businesses" loading="lazy" decoding="async">
+          <div class="growth-overlay">
+            <span class="growth-tag"
+              style="background:rgba(245,191,15,0.25); color:#FDE047; border-color:rgba(245,191,15,0.4);"> SERVICE
+              COMPANIES</span>
+            <h3>Service Agencies</h3>
+            <p>Streamlined client portals and booking automation.</p>
+          </div>
+        </div>
+
+        <div class="growth-card">
+          <img src="assets/images/growth_scaleup_tech.png" alt="Growing Companies" loading="lazy" decoding="async">
+          <div class="growth-overlay">
+            <span class="growth-tag"> SCALEUPS</span>
+            <h3>Growing Scaleups</h3>
+            <p>Expanding platform capacity and cloud infrastructure.</p>
+          </div>
+        </div>
+
+        <div class="growth-card">
+          <img src="assets/images/Digital_marketing.jpeg" alt="Digital Transformation" loading="lazy" decoding="async">
+          <div class="growth-overlay">
+            <span class="growth-tag"
+              style="background:rgba(215,14,105,0.25); color:#F28CB8; border-color:rgba(215,14,105,0.4);">
+              ENTERPRISE</span>
+            <h3>Digital Transformation</h3>
+            <p>Legacy software migration and AI automation integration.</p>
           </div>
         </div>
       </div>
 
-      <!-- Explore Services Pill Button with Concentric Glowing Rings -->
-      <div class="hex-explore-cta">
-        <a href="services.html" class="hex-pill-btn">
-          <span class="pill-ring ring-1"></span>
-          <span class="pill-ring ring-2"></span>
-          <span class="pill-ring ring-3"></span>
-          <span class="pill-text">Explore Services</span>
-          <i data-lucide="arrow-right"></i>
-        </a>
+      <div style="text-align:center; margin-top:32px;">
+        <a href="services.html" class="btn btn-primary" style="font-size:0.95rem;">Explore Our Technology Services →</a>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 6 — OUR TEAM (PEOPLE BEHIND THE TECHNOLOGY HORIZONTAL SCROLL) -->
-  <section class="section-tight band-dark cinematic-section" id="team-section">
+  <!-- SECTION 6 — OUR TEAM -->
+  <section class="section-tight band-dark cinematic-section">
     <div class="container">
       <div class="section-head center">
         <span class="eyebrow">OUR TEAM</span>
@@ -476,93 +453,91 @@
         <p>A focused team bringing together business understanding, design, engineering, delivery and client
           coordination.</p>
       </div>
-
-      <div class="team-carousel-wrapper">
-        <button class="team-nav-btn prev" id="teamPrevBtn" aria-label="Previous member"><i data-lucide="chevron-left"></i></button>
-
-        <div class="team-grid team-horizontal-track" id="teamHorizontalTrack">
-          <div class="team-card t-yellow reveal">
-            <div class="team-avatar-ring">
-              <div class="team-avatar-inner">
-                <img src="assets/images/team/Founder.webp" alt="ZAVYX Infotech founder" loading="lazy" decoding="async">
-              </div>
+      <div class="team-grid" style="margin-top:36px;">
+        <div class="team-card t-yellow reveal">
+          <div class="team-avatar-ring">
+            <div class="team-avatar-inner">
+              <img src="assets/images/team/Founder.webp" alt="ZAVYX Infotech founder" loading="lazy" decoding="async">
             </div>
-            <h3>Founder</h3>
-            <span class="team-role">Sakthivel M</span>
-            <p>Shapes the company's direction and works closely with clients to understand business goals and project requirements.</p>
           </div>
-
-          <div class="team-card t-blue reveal">
-            <div class="team-avatar-ring">
-              <div class="team-avatar-inner">
-                <img src="assets/images/team/Director.webp" alt="ZAVYX Infotech Head of Operations" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <h3>Head of Operations</h3>
-            <span class="team-role">Saranya Sakthivel</span>
-            <p>Coordinates delivery, priorities and internal processes to keep projects moving smoothly.</p>
-          </div>
-
-          <div class="team-card t-pink reveal">
-            <div class="team-avatar-ring">
-              <div class="team-avatar-inner">
-                <img src="assets/images/team/HR.webp" alt="ZAVYX Infotech HR Manager" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <h3>HR Manager</h3>
-            <span class="team-role">Archana R</span>
-            <p>Supports the people and processes that help the company build and maintain an effective team.</p>
-          </div>
-
-          <div class="team-card t-green reveal">
-            <div class="team-avatar-ring">
-              <div class="team-avatar-inner">
-                <img src="assets/images/team/UI_Ux_Designer.jpeg" alt="ZAVYX Infotech UI UX Designer" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <h3>UI/UX Designer</h3>
-            <span class="team-role">Vijayadarshini N M</span>
-            <p>Creates user experiences and interfaces designed around usability, clarity and business objectives.</p>
-          </div>
-
-          <div class="team-card t-pink reveal">
-            <div class="team-avatar-ring">
-              <div class="team-avatar-inner">
-                <img src="assets/images/team/Relationship_Manager.webp" alt="ZAVYX Infotech Relationship Manager" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <h3>Relationship Manager</h3>
-            <span class="team-role">Ramya R</span>
-            <p>Acts as a key communication point between clients and the project team throughout the engagement.</p>
-          </div>
-
-          <div class="team-card t-blue reveal">
-            <div class="team-avatar-ring">
-              <div class="team-avatar-inner">
-                <img src="assets/images/team/developer_developer.webp" alt="ZAVYX Infotech Full Stack Developer" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <h3>Full Stack Developer</h3>
-            <span class="team-role">Vasuki T</span>
-            <p>Builds and integrates the front-end and back-end systems that power digital products.</p>
-          </div>
-
-          <div class="team-card t-yellow reveal">
-            <div class="team-avatar-ring">
-              <div class="team-avatar-inner">
-                <img src="assets/images/team/Data_Analyst.webp" alt="ZAVYX Infotech Business Analyst" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <h3>Business Analyst</h3>
-            <span class="team-role">Nithya Sri S</span>
-            <p>Translates business requirements into structured project requirements and practical solution plans.</p>
-          </div>
+          <h3>Founder</h3>
+          <span class="team-role">Sakthivel M</span>
+          <p>Shapes the company's direction and works closely with clients to understand business goals and project
+            requirements.</p>
         </div>
 
-        <button class="team-nav-btn next" id="teamNextBtn" aria-label="Next member"><i data-lucide="chevron-right"></i></button>
-      </div>
+        <div class="team-card t-blue reveal">
+          <div class="team-avatar-ring">
+            <div class="team-avatar-inner">
+              <img src="assets/images/team/Director.webp" alt="ZAVYX Infotech Head of Operations" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3>Head of Operations</h3>
+          <span class="team-role">Saranya Sakthivel</span>
+          <p>Coordinates delivery, priorities and internal processes to keep projects moving smoothly.</p>
+        </div>
 
-      <div class="team-dots-nav" id="teamDotsNav"></div>
+           <div class="team-card t-pink reveal">
+          <div class="team-avatar-ring">
+            <div class="team-avatar-inner">
+              <img src="assets/images/team/HR.webp" alt="ZAVYX Infotech HR Manager" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3>HR Manager</h3>
+          <span class="team-role">Archana R</span>
+          <p>Supports the people and processes that help the company build and maintain an effective team.</p>
+        </div>
+
+        
+        <div class="team-card t-green reveal">
+          <div class="team-avatar-ring">
+            <div class="team-avatar-inner">
+              <img src="assets/images/team/UI_Ux_Designer.jpeg" alt="ZAVYX Infotech UI UX Designer" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3>UI/UX Designer</h3>
+          <span class="team-role">Vijayadarshini N M</span>
+          <p>Creates user experiences and interfaces designed around usability, clarity and business objectives.</p>
+        </div>
+
+        <div class="team-card t-pink reveal">
+          <div class="team-avatar-ring">
+            <div class="team-avatar-inner">
+              <img src="assets/images/team/Relationship_Manager.webp" alt="ZAVYX Infotech Relationship Manager" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3>Relationship Manager</h3>
+          <span class="team-role">Ramya R</span>
+          <p>Acts as a key communication point between clients and the project team throughout the engagement.</p>
+        </div>
+
+          <div class="team-card t-blue reveal">
+          <div class="team-avatar-ring">
+            <div class="team-avatar-inner">
+              <img src="assets/images/team/developer_developer.webp" alt="ZAVYX Infotech Full Stack Developer" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3>Full Stack Developer</h3>
+          <span class="team-role">Vasuki T</span>
+          <p>Builds and integrates the front-end and back-end systems that power digital products.</p>
+        </div>
+        
+        <div class="team-card t-yellow reveal">
+          <div class="team-avatar-ring">
+            <div class="team-avatar-inner">
+              <img src="assets/images/team/Data_Analyst.webp" alt="ZAVYX Infotech Business Analyst" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <h3>Business Analyst</h3>
+          <span class="team-role">Nithya Sri S</span>
+          <p>Translates business requirements into structured project requirements and practical solution plans.</p>
+        </div>
+
+     
+
+      
+
+      </div>
     </div>
   </section>
 

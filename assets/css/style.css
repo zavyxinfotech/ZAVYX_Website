@@ -1095,6 +1095,17 @@ a.btn.btn-outline:hover,
 @media (max-width: 640px) {
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .svc-card {
+    height: 230px !important;
+    border-radius: 16px !important;
+  }
+  .svc-card-content {
+    padding: 16px !important;
+  }
+  .svc-card h3 {
+    font-size: 1.15rem !important;
   }
 }
 
@@ -1480,71 +1491,87 @@ a.btn.btn-outline:hover,
 }
 
 @media (max-width: 992px) {
-  /* section process wave and pinned track keep their defaults */
+  .section-process-wave .section-head {
+    margin-bottom: 10px !important;
+  }
+  .section-process-wave .section-head h2 {
+    font-size: 1.35rem !important;
+    margin-bottom: 4px !important;
+  }
+  .section-process-wave .section-head p {
+    font-size: 0.8rem !important;
+    margin-bottom: 0 !important;
+  }
+  .section-process-wave .section-head .eyebrow {
+    font-size: 0.7rem !important;
+    padding: 2px 10px !important;
+    margin-bottom: 4px !important;
+  }
   .process-sticky-stage {
-    /* Keeps sticky positioning and 100vh height */
-    padding: 20px 0;
+    padding: 10px 0;
   }
   .process-wave-wrapper {
     margin-top: 0;
     padding: 0 15px;
   }
   .process-line-bg {
-    top: 20px;
-    bottom: 20px;
-    left: 28px;
+    top: 15px;
+    bottom: 15px;
+    left: 20px;
     right: auto;
-    width: 4px;
-    height: calc(100% - 40px);
+    width: 3px;
+    height: calc(100% - 30px);
   }
   .process-line-active {
     display: block;
-    top: 20px;
-    left: 28px;
-    width: 4px;
+    top: 15px;
+    left: 20px;
+    width: 3px;
     height: 0%;
     background: linear-gradient(180deg, #23B6F3, #D70E69, #48B25F, #F5BF0F, #23B6F3);
     border-radius: 999px;
   }
   .process-wave-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
-    max-width: 560px;
+    gap: 8px;
+    max-width: 520px;
     margin: 0 auto;
   }
   .process-wave-step {
     flex-direction: row;
     text-align: left;
-    gap: 16px;
+    gap: 12px;
     align-items: center;
-    /* Uses default opacity and transform transitions */
   }
   .wave-node {
-    width: 56px;
-    height: 56px;
-    min-width: 56px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
     margin-bottom: 0;
     border-width: 2px;
   }
   .node-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
   .step-num {
-    top: -8px;
-    font-size: 0.75rem;
-    padding: 2px 8px;
+    top: -6px;
+    font-size: 0.65rem;
+    padding: 1px 6px;
   }
   .wave-content {
     max-width: 100%;
     padding-top: 0;
   }
   .wave-content h3 {
-    font-size: 1.1rem;
-    margin-bottom: 4px;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+    line-height: 1.2;
   }
   .wave-content p {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    margin: 0;
   }
   .process-scroll-indicator {
     display: none;
@@ -2944,21 +2971,27 @@ footer ul li a:hover {
     background: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(24px) !important;
   }
+  
   .chat-body .msg {
-    font-size: 0.72rem !important;
-    padding: 8px 10px !important;
+    font-size: 0.75rem !important;
+    padding: 8px 12px !important;
+    line-height: 1.4 !important;
   }
-  .qr-btn {
+  .quick-replies .qr-btn {
     font-size: 0.65rem !important;
-    padding: 5px 8px !important;
+    padding: 6px 10px !important;
   }
   .chat-foot input {
     font-size: 0.75rem !important;
-    padding: 6px 10px !important;
+    padding: 8px 12px !important;
   }
   .chat-foot button svg, .chat-foot button i {
-    width: 16px !important;
-    height: 16px !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    stroke: #ffffff !important;
+    stroke-width: 2 !important;
   }
 }
 
@@ -2984,6 +3017,28 @@ footer ul li a:hover {
   .fab { width: 36px !important; height: 36px !important; }
   .fab svg, .fab i { width: 18px !important; height: 18px !important; font-size: 18px !important; }
   .fab-bot-3d-img { width: 36px !important; height: 36px !important; min-width: 36px !important; min-height: 36px !important; }
+  
+  .chat-body .msg {
+    font-size: 0.75rem !important;
+    padding: 8px 12px !important;
+    line-height: 1.4 !important;
+  }
+  .quick-replies .qr-btn {
+    font-size: 0.65rem !important;
+    padding: 6px 10px !important;
+  }
+  .chat-foot input {
+    font-size: 0.75rem !important;
+    padding: 8px 12px !important;
+  }
+  .chat-foot button svg, .chat-foot button i {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    stroke: #ffffff !important;
+    stroke-width: 2 !important;
+  }
 }
 
 /* =========================================================
@@ -3400,7 +3455,9 @@ section.in {
 
 @media (max-width: 960px) {
   .wwd-card-spotlight-wrapper {
-    transform: translateY(110px);
+    transform: translateY(45px);
+    width: 270px;
+    height: 220px;
   }
 }
 
@@ -3514,37 +3571,60 @@ section.in {
   }
 
   .wwd-large-heading {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
   }
 
   .wwd-subtitle {
-    font-size: 0.95rem;
-    margin-bottom: 24px;
+    font-size: 0.88rem;
+    margin-bottom: 18px;
   }
 
   .wwd-card-spotlight-wrapper {
-    width: 90vw;
-    height: 380px;
+    width: 270px;
+    height: 220px;
+    transform: translateY(45px);
   }
 
   .wwd-card-inner {
-    padding: 24px 24px;
+    border-radius: 16px !important;
+  }
+
+  .wwd-card-content {
+    padding: 12px 14px;
+  }
+
+  .wwd-card-content h3 {
+    font-size: 1.05rem;
+    line-height: 1.25;
+    margin-bottom: 2px;
+  }
+
+  .wwd-card-link {
+    font-size: 0.8rem;
   }
 
   .wwd-counter-header {
-    top: 6%;
+    top: 4%;
   }
 
   .wwd-dots-nav {
-    bottom: 5%;
-    gap: 6px;
+    bottom: 3.5%;
+    gap: 4px;
+    background: rgba(15, 23, 42, 0.75);
+    padding: 5px 12px;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
   }
   .wwd-dot {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.35);
   }
   .wwd-dot.active {
-    width: 18px;
+    width: 14px;
+    height: 5px;
+    background: var(--blue);
   }
 
   .wwd-orbit-node {
