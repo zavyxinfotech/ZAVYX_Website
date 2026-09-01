@@ -475,6 +475,19 @@ document.addEventListener('DOMContentLoaded', function () {
         stage3D.style.opacity = 0;
       }
 
+      // Phase 2.5: Dark Background Circular Wipe Transition
+      var darkBgWipe = document.getElementById('wwdDarkBgWipe');
+      if (darkBgWipe) {
+        if (progress >= 0.20 && progress < 0.24) {
+          var wipeProgress = (progress - 0.20) / 0.04; // 0 to 1
+          darkBgWipe.style.transform = 'translate(-50%, -50%) scale(' + wipeProgress + ')';
+        } else if (progress >= 0.24) {
+          darkBgWipe.style.transform = 'translate(-50%, -50%) scale(1)';
+        } else {
+          darkBgWipe.style.transform = 'translate(-50%, -50%) scale(0)';
+        }
+      }
+
       // Phase 3: Service Cards Showcase One By One on the RIGHT Side
       if (progress >= 0.24) {
         stageCards.classList.add('active');
@@ -580,5 +593,43 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   initPinnedProcessSection();
+  
+  function initHexagonHoverAnimation() {
+    var hexWrappers = document.querySelectorAll('.hex-card-wrapper:not(.hex-center-core)');
+    if (!hexWrappers.length) return;
+    
+    var currentIndex = -1;
+    var intervalId;
+
+    function nextHex() {
+      hexWrappers.forEach(function(el) {
+        el.classList.remove('hex-active');
+      });
+      currentIndex = (currentIndex + 1) % hexWrappers.length;
+      hexWrappers[currentIndex].classList.add('hex-active');
+    }
+
+    intervalId = setInterval(nextHex, 2500);
+
+    var container = document.querySelector('.honeycomb-container');
+    if (container) {
+      container.addEventListener('mouseenter', function() {
+        clearInterval(intervalId);
+        hexWrappers.forEach(function(el) {
+          el.classList.remove('hex-active');
+        });
+      });
+      container.addEventListener('mouseleave', function() {
+        currentIndex = -1; // Reset or continue
+        nextHex();
+        intervalId = setInterval(nextHex, 2500);
+      });
+    }
+
+    // Start with the first one highlighted
+    nextHex();
+  }
+
+  initHexagonHoverAnimation();
 });
 

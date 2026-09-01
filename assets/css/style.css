@@ -602,6 +602,17 @@ a.btn.btn-outline:hover,
   flex: none;
 }
 
+/* Hide "All Services Overview" option in Desktop view only */
+.mega-all-services {
+  display: none !important;
+}
+
+@media (max-width: 960px) {
+  .mega-all-services {
+    display: flex !important;
+  }
+}
+
 .nav-cta {
   display: flex;
   align-items: center;
@@ -1542,7 +1553,7 @@ a.btn.btn-outline:hover,
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.25) 0%, rgba(15, 23, 42, 0.65) 55%, rgba(15, 23, 42, 0.92) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.2) 40%, rgba(15, 23, 42, 0.95) 100%);
   transition: background 0.4s ease, backdrop-filter 0.4s ease;
 }
 
@@ -1551,7 +1562,7 @@ a.btn.btn-outline:hover,
 }
 
 .svc-card:hover .svc-card-overlay {
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0.88) 50%, rgba(15, 23, 42, 0.96) 100%);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.70) 50%, rgba(15, 23, 42, 0.98) 100%);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
@@ -2630,14 +2641,14 @@ html body .team-card.t-pink .team-role {
   max-width: 100%;
   padding: 24px 18px;
   box-sizing: border-box;
-  background: #0B132B;
+  background: #F8FAFC;
   border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+  border: none !important;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.06);
   z-index: 1;
 }
 
-/* Dynamic Multicolor Spotlight Glow using ZAVYX logo colors (#23B6F3, #D70E69, #48B25F, #F5BF0F) */
+/* Dynamic Light Theme Multicolor Spotlight Glow using ZAVYX logo colors (#23B6F3, #D70E69, #48B25F, #F5BF0F) */
 .tech-marquee-wrapper::before {
   content: "";
   position: absolute;
@@ -2646,10 +2657,10 @@ html body .team-card.t-pink .team-role {
   right: -30%;
   bottom: -30%;
   background:
-    radial-gradient(circle at 20% 30%, rgba(35, 182, 243, 0.45) 0%, transparent 50%),
-    radial-gradient(circle at 80% 30%, rgba(215, 14, 105, 0.42) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(72, 178, 95, 0.40) 0%, transparent 50%),
-    radial-gradient(circle at 25% 75%, rgba(245, 191, 15, 0.38) 0%, transparent 50%);
+    radial-gradient(circle at 20% 30%, rgba(35, 182, 243, 0.22) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(215, 14, 105, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(72, 178, 95, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 25% 75%, rgba(245, 191, 15, 0.18) 0%, transparent 50%);
   background-size: 150% 150%;
   animation: techSpotlightGlow 12s ease-in-out infinite alternate;
   pointer-events: none;
@@ -2663,7 +2674,7 @@ html body .team-card.t-pink .team-role {
   position: absolute;
   inset: 0;
   border-radius: 28px;
-  background: linear-gradient(90deg, #0B132B 0%, transparent 6%, transparent 94%, #0B132B 100%);
+  background: linear-gradient(90deg, #F8FAFC 0%, transparent 8%, transparent 92%, #F8FAFC 100%);
   z-index: 4;
   pointer-events: none;
 }
@@ -2758,7 +2769,7 @@ html body .team-card.t-pink .team-role {
 .tech-chip.theme-cyan {
   border-color: rgba(35, 182, 243, 0.35) !important;
   color: #0284c7 !important;
-  background: linear-gradient(135deg, #ffffff 0%, rgba(35, 182, 243, 0.06) 100%) !important;
+  background: transparent !important;
 }
 
 .tech-chip.theme-cyan i,
@@ -2776,7 +2787,7 @@ html body .team-card.t-pink .team-role {
 .tech-chip.theme-pink {
   border-color: rgba(215, 14, 105, 0.35) !important;
   color: #be123c !important;
-  background: linear-gradient(135deg, #ffffff 0%, rgba(215, 14, 105, 0.06) 100%) !important;
+  background: transparent !important;
 }
 
 .tech-chip.theme-pink i,
@@ -2794,7 +2805,7 @@ html body .team-card.t-pink .team-role {
 .tech-chip.theme-green {
   border-color: rgba(72, 178, 95, 0.35) !important;
   color: #15803d !important;
-  background: linear-gradient(135deg, #ffffff 0%, rgba(72, 178, 95, 0.06) 100%) !important;
+  background: transparent !important;
 }
 
 .tech-chip.theme-green i,
@@ -2812,7 +2823,7 @@ html body .team-card.t-pink .team-role {
 .tech-chip.theme-yellow {
   border-color: rgba(245, 191, 15, 0.45) !important;
   color: #b45309 !important;
-  background: linear-gradient(135deg, #ffffff 0%, rgba(245, 191, 15, 0.08) 100%) !important;
+  background: transparent !important;
 }
 
 .tech-chip.theme-yellow i,
@@ -4193,33 +4204,109 @@ footer ul li a:hover {
   }
 }
 
+/* Glassmorphism 3D Floating Feature Cards */
 .feature-card {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 22px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 18px;
+  padding: 26px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 10px 30px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Staggered Entry Delays (Mobile Friendly) */
+.feature-grid .feature-card.reveal:nth-child(1) { transition-delay: 0.0s; }
+.feature-grid .feature-card.reveal:nth-child(2) { transition-delay: 0.15s; }
+.feature-grid .feature-card.reveal:nth-child(3) { transition-delay: 0.30s; }
+.feature-grid .feature-card.reveal:nth-child(4) { transition-delay: 0.45s; }
+.feature-grid .feature-card.reveal:nth-child(5) { transition-delay: 0.60s; }
+.feature-grid .feature-card.reveal:nth-child(6) { transition-delay: 0.75s; }
+.feature-grid .feature-card.reveal:nth-child(7) { transition-delay: 0.90s; }
+.feature-grid .feature-card.reveal:nth-child(8) { transition-delay: 1.05s; }
+.feature-grid .feature-card.reveal:nth-child(9) { transition-delay: 1.20s; }
+
+/* 3D Reveal Override */
+.feature-grid .feature-card.reveal {
+  opacity: 0;
+  transform: perspective(1000px) translateY(40px) translateZ(-40px) rotateX(-8deg);
+  transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.feature-grid .feature-card.reveal.in {
+  opacity: 1;
+  transform: perspective(1000px) translateY(0) translateZ(0) rotateX(0);
+}
+
+/* Base Hover Fallback just in case animation is prevented */
+.feature-grid .feature-card:hover {
+  transform: translateY(-5px);
+  z-index: 10;
+}
+
+/* Blue Theme (1, 4, 7) */
+.feature-grid .feature-card.reveal.in:nth-child(3n+1) {
+  border-top: 3px solid #23B6F3;
+  background: linear-gradient(150deg, rgba(255,255,255,0.9) 0%, rgba(240,249,255,0.7) 100%);
+  animation: float3DBlue 4s ease-in-out infinite alternate;
+  animation-delay: 1.5s; /* Wait for reveal to finish before floating */
+}
+.feature-grid .feature-card:nth-child(3n+1) .icon { color: #23B6F3; background: rgba(35, 182, 243, 0.12); }
+
+/* Pink Theme (2, 5, 8) */
+.feature-grid .feature-card.reveal.in:nth-child(3n+2) {
+  border-top: 3px solid #D70E69;
+  background: linear-gradient(150deg, rgba(255,255,255,0.9) 0%, rgba(253,235,243,0.7) 100%);
+  animation: float3DPink 4.5s ease-in-out infinite alternate;
+  animation-delay: 1.5s;
+}
+.feature-grid .feature-card:nth-child(3n+2) .icon { color: #D70E69; background: rgba(215, 14, 105, 0.12); }
+
+/* Green Theme (3, 6, 9) */
+.feature-grid .feature-card.reveal.in:nth-child(3n+3) {
+  border-top: 3px solid #48B25F;
+  background: linear-gradient(150deg, rgba(255,255,255,0.9) 0%, rgba(235,251,240,0.7) 100%);
+  animation: float3DGreen 5s ease-in-out infinite alternate;
+  animation-delay: 1.5s;
+}
+.feature-grid .feature-card:nth-child(3n+3) .icon { color: #48B25F; background: rgba(72, 178, 95, 0.12); }
+
+@keyframes float3DBlue {
+  0% { transform: perspective(1000px) translateY(0) rotateX(0) rotateY(0); box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 10px 30px rgba(35, 182, 243, 0.08); }
+  100% { transform: perspective(1000px) translateY(-8px) rotateX(2deg) rotateY(-1deg); box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 20px 40px rgba(35, 182, 243, 0.18); }
+}
+@keyframes float3DPink {
+  0% { transform: perspective(1000px) translateY(0) rotateX(0) rotateY(0); box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 10px 30px rgba(215, 14, 105, 0.06); }
+  100% { transform: perspective(1000px) translateY(-10px) rotateX(-2deg) rotateY(1deg); box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 20px 40px rgba(215, 14, 105, 0.15); }
+}
+@keyframes float3DGreen {
+  0% { transform: perspective(1000px) translateY(0) rotateX(0) rotateY(0); box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 10px 30px rgba(72, 178, 95, 0.06); }
+  100% { transform: perspective(1000px) translateY(-6px) rotateX(1deg) rotateY(2deg); box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 20px 40px rgba(72, 178, 95, 0.15); }
 }
 
 .feature-card .icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
-  font-size: 1.1rem;
-  background: rgba(35, 182, 243, .12);
-  color: var(--blue);
+  margin-bottom: 16px;
+  font-size: 1.25rem;
 }
 
 .feature-card h3 {
-  font-size: 1rem;
-  margin-bottom: 6px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #0F172A;
 }
 
 .feature-card p {
-  font-size: .86rem;
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -4351,6 +4438,14 @@ footer ul li a:hover {
   box-shadow: 0 0 10px rgba(35, 182, 243, 0.2);
 }
 
+@media (max-width: 768px) {
+  .zvx-preloader-spinner {
+    width: 28px;
+    height: 28px;
+    border-width: 2px;
+  }
+}
+
 @keyframes preloader-spin {
   0% {
     transform: rotate(0deg);
@@ -4418,6 +4513,28 @@ footer,
   justify-content: center;
   overflow: hidden;
   background: var(--paper);
+}
+
+.wwd-dark-bg-wipe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250vmax;
+  height: 250vmax;
+  background-color: #0E1217; /* Exact match to the laptop mockup edge color shade */
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transform-origin: center;
+  z-index: 5;
+  pointer-events: none;
+  transition: transform 0.1s linear, background-color 0.4s ease;
+}
+
+@media (max-width: 960px) {
+  .wwd-dark-bg-wipe {
+    left: 50%;
+    top: 50%; /* Originates securely from center screen in mobile as well */
+  }
 }
 
 /* STAGE 1: LARGE TITLE */
@@ -4877,7 +4994,7 @@ footer,
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
-  background: linear-gradient(180deg, rgba(11, 31, 58, 0.75) 0%, rgba(11, 31, 58, 0.35) 45%, rgba(11, 31, 58, 0.92) 100%) !important;
+  background: linear-gradient(180deg, transparent 0%, rgba(11, 31, 58, 0.2) 50%, rgba(11, 31, 58, 0.95) 100%) !important;
   z-index: 2 !important;
   pointer-events: none !important;
 }
@@ -4977,23 +5094,7 @@ footer,
   }
 
   .wwd-dots-nav {
-    bottom: auto;
-    top: calc(50% + 310px);
-    gap: 5px;
-    background: transparent !important;
-    padding: 0 !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-  }
-
-  .wwd-dot {
-    width: 5px;
-    height: 5px;
-  }
-
-  .wwd-dot.active {
-    width: 10px;
-    height: 3px;
+    display: none !important;
   }
 
   .wwd-orbit-node {
@@ -6391,9 +6492,9 @@ footer,
 
   .other-services-grid .svc-card .svc-card-bg img,
   .section-tight .services-grid .svc-card .svc-card-bg img {
-    height: 180px !important;
+    height: 100% !important;
     object-fit: cover !important;
-    border-radius: 12px 12px 0 0 !important;
+    border-radius: 18px !important;
   }
 
   /* Compact Mobile Spacing for all pages */
@@ -6407,5 +6508,48 @@ footer,
 
   .section-head {
     margin-bottom: 20px !important;
+  }
+}
+
+/* ==========================================================================
+   PROCESS SECTION (HOW WE DELIVER DIGITAL SOLUTIONS) REFINEMENTS
+   ========================================================================== */
+
+/* Remove step counts across all pages (Home page & all Service detail pages) */
+.step-num,
+.indicator-step,
+.current-step-num {
+  display: none !important;
+}
+
+/* Increase sizes of text bigger in Desktop View */
+@media (min-width: 961px) {
+  /* Main Section Heading */
+  .section-process-wave .section-head h2,
+  .process-sticky-stage .section-head h2 {
+    font-size: 3rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Process Step Card Title */
+  .process-wave-step .wave-content h3,
+  .process-wave-grid .wave-content h3,
+  .wave-content h3 {
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    color: #0F172A !important;
+    margin-bottom: 8px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Process Step Card Description Text */
+  .process-wave-step .wave-content p,
+  .process-wave-grid .wave-content p,
+  .wave-content p {
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+    color: #475569 !important;
   }
 }
