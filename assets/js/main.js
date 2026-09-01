@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function closeMobileNav() {
     if (navLinks) navLinks.classList.remove('open');
-    if (navToggle) navToggle.classList.remove('open');
     var navServices = document.querySelector('.nav-services');
     if (navServices) navServices.classList.remove('open');
   }
@@ -69,7 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
     navToggle.addEventListener('click', function (e) {
       e.stopPropagation();
       navLinks.classList.toggle('open');
-      navToggle.classList.toggle('open');
     });
   }
 
@@ -535,11 +533,11 @@ document.addEventListener('DOMContentLoaded', function () {
         var linePct = totalSteps > 1 ? (activeIndex / (totalSteps - 1)) * 100 : 100;
         if (lineActive) {
           if (window.innerWidth <= 992) {
-            lineActive.style.width = '4px';
             lineActive.style.height = linePct + '%';
+            lineActive.style.width = '4px';
           } else {
-            lineActive.style.height = '6px';
             lineActive.style.width = linePct + '%';
+            lineActive.style.height = '6px';
           }
         }
 
@@ -559,163 +557,5 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   initPinnedProcessSection();
-
-  /* ---------- Honeycomb Hex Cards Scroll Animation ---------- */
-  function initHoneycombScrollAnimation() {
-    var container = document.getElementById('honeycombContainer');
-    var section = document.getElementById('growth-stages-section');
-    if (!container || !section) return;
-
-    var cards = container.querySelectorAll('.hex-card-wrapper[data-hex-index]');
-    if (!cards.length) return;
-
-    var growthCards = Array.from(cards).filter(function (c) {
-      return c.getAttribute('data-hex-index') !== 'center';
-    });
-    if (!growthCards.length) return;
-
-    var activeIndex = -1;
-
-    function updateActiveHexOnScroll() {
-      var rect = section.getBoundingClientRect();
-      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
-
-      if (rect.top <= windowHeight && rect.bottom >= 0) {
-        var totalDist = windowHeight + rect.height;
-        var currentPos = windowHeight - rect.top;
-        var scrollRatio = Math.max(0, Math.min(1, currentPos / totalDist));
-
-        var targetIndex = Math.floor(scrollRatio * growthCards.length);
-        var boundedIndex = Math.min(growthCards.length - 1, Math.max(0, targetIndex));
-
-        if (boundedIndex !== activeIndex) {
-          activeIndex = boundedIndex;
-          growthCards.forEach(function (card, idx) {
-            if (idx === activeIndex) {
-              card.classList.add('hex-active');
-            } else {
-              card.classList.remove('hex-active');
-            }
-          });
-        }
-      }
-    }
-
-    window.addEventListener('scroll', updateActiveHexOnScroll, { passive: true });
-    updateActiveHexOnScroll();
-  }
-
-  initHoneycombScrollAnimation();
-
-  /* ---------- Team Members Horizontal Scroll & Hover Focus ---------- */
-  function initTeamHorizontalScroll() {
-    var track = document.getElementById('teamHorizontalTrack');
-    var prevBtn = document.getElementById('teamPrevBtn');
-    var nextBtn = document.getElementById('teamNextBtn');
-    var dotsNav = document.getElementById('teamDotsNav');
-    if (!track) return;
-
-    var cards = track.querySelectorAll('.team-card');
-    if (!cards.length) return;
-
-    if (dotsNav) {
-      dotsNav.innerHTML = '';
-      cards.forEach(function (card, idx) {
-        var dot = document.createElement('span');
-        dot.className = 'team-dot' + (idx === 0 ? ' active' : '');
-        dot.addEventListener('click', function () {
-          card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        });
-        dotsNav.appendChild(dot);
-      });
-    }
-
-    function updateFocusedCard() {
-      var trackRect = track.getBoundingClientRect();
-      var trackCenter = trackRect.left + trackRect.width / 2;
-
-      var closestIdx = 0;
-      var minDistance = Infinity;
-
-      cards.forEach(function (card, idx) {
-        var cardRect = card.getBoundingClientRect();
-        var cardCenter = cardRect.left + cardRect.width / 2;
-        var dist = Math.abs(trackCenter - cardCenter);
-
-        if (dist < minDistance) {
-          minDistance = dist;
-          closestIdx = idx;
-        }
-      });
-
-      cards.forEach(function (card, idx) {
-        if (idx === closestIdx) {
-          card.classList.add('team-card-focused');
-        } else {
-          card.classList.remove('team-card-focused');
-        }
-      });
-
-      if (dotsNav) {
-        var dots = dotsNav.querySelectorAll('.team-dot');
-        dots.forEach(function (dot, idx) {
-          if (idx === closestIdx) dot.classList.add('active');
-          else dot.classList.remove('active');
-        });
-      }
-    }
-
-    track.addEventListener('scroll', updateFocusedCard, { passive: true });
-
-    if (prevBtn) {
-      prevBtn.addEventListener('click', function () {
-        track.scrollBy({ left: -290, behavior: 'smooth' });
-      });
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener('click', function () {
-        track.scrollBy({ left: 290, behavior: 'smooth' });
-      });
-    }
-
-    updateFocusedCard();
-  }
-
-  initTeamHorizontalScroll();
-
-  /* ---------- Other Services Mobile Auto Scroll ---------- */
-  function initOtherServicesMobileAutoScroll() {
-    if (window.innerWidth > 768) return;
-
-    var grids = document.querySelectorAll('.other-services-grid, .section-tight .services-grid');
-    grids.forEach(function (grid) {
-      if (grid.children.length <= 1) return;
-
-      var scrollIndex = 0;
-      var autoScrollInterval = null;
-
-      function startAutoScroll() {
-        if (autoScrollInterval) clearInterval(autoScrollInterval);
-        autoScrollInterval = setInterval(function () {
-          var cards = grid.querySelectorAll('.svc-card');
-          if (!cards.length) return;
-
-          scrollIndex = (scrollIndex + 1) % cards.length;
-          cards[scrollIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        }, 3200);
-      }
-
-      startAutoScroll();
-
-      grid.addEventListener('touchstart', function () {
-        if (autoScrollInterval) clearInterval(autoScrollInterval);
-      }, { passive: true });
-
-      grid.addEventListener('touchend', function () {
-        setTimeout(startAutoScroll, 4000);
-      }, { passive: true });
-    });
-  }
-
-  initOtherServicesMobileAutoScroll();
 });
+
