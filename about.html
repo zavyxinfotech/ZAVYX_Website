@@ -221,23 +221,13 @@
           </div>
         </div>
 
-        <div class="stat-bar-card" data-target="1" data-suffix="" data-fill="100">
+        <div class="stat-bar-card stat-bar-center" data-target="100" data-suffix="%" data-fill="100">
           <div class="stat-bar-head">
-            <span class="stat-bar-title">POINT OF CONTACT</span>
-            <span class="stat-bar-num" id="stat-num-3">0</span>
+            <span class="stat-bar-title">CLIENT DIRECT SUPPORT</span>
+            <span class="stat-bar-num" id="stat-num-3">0%</span>
           </div>
           <div class="stat-bar-track">
             <div class="stat-bar-fill" id="stat-fill-3"></div>
-          </div>
-        </div>
-
-        <div class="stat-bar-card" data-target="100" data-suffix="%" data-fill="100">
-          <div class="stat-bar-head">
-            <span class="stat-bar-title">CLIENT DIRECT SUPPORT</span>
-            <span class="stat-bar-num" id="stat-num-4">0%</span>
-          </div>
-          <div class="stat-bar-track">
-            <div class="stat-bar-fill" id="stat-fill-4"></div>
           </div>
         </div>
       </div>
@@ -364,82 +354,116 @@
     </div>
   </section>
 
-
-  <!-- SECTION 5 — WHO WE SERVE (PROFESSIONAL IMAGE CARDS) -->
-  <section class="section cinematic-section">
+  <!-- HONEYCOMB HEXAGONAL GRID: BUILT FOR BUSINESSES AT DIFFERENT STAGES OF GROWTH -->
+  <section class="section cinematic-section hex-growth-section" id="growth-stages-section">
+    <div class="bg-grid-pattern"></div>
     <div class="container">
       <div class="section-head center">
-        <span class="eyebrow">WHO WE SERVE</span>
-        <h2>Built for Businesses at Different Stages of Growth</h2>
+        <span class="eyebrow" style="color: #23B6F3; font-weight: 700; letter-spacing: 0.08em;">SCALE WITH ZAVYX</span>
+        <h2 style="font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; margin-bottom: 12px; color: #0f172a;">Built for Businesses at Different Stages of Growth</h2>
+        <p class="section-lead center" style="max-width: 680px; margin: 0 auto; color: #64748b;">Whether you are validating an MVP or scaling enterprise software, our modular solutions adapt to your exact stage.</p>
       </div>
 
-      <!-- Image Cards Grid for Growth Stages (6 Unique Realistic Photos) -->
-      <div class="growth-grid">
-        <div class="growth-card">
-          <img src="assets/images/growth_startup_founder.png" alt="Startups & Founders" loading="lazy" decoding="async">
-          <div class="growth-overlay">
-            <span class="growth-tag"> STARTUPS & FOUNDERS</span>
-            <h3>Early-Stage Founders</h3>
-            <p>Building MVP products and scaling core digital ideas.</p>
+      <!-- Honeycomb Hexagonal Grid Container (2-3-2 Interlocking Rows matching reference design) -->
+      <div class="honeycomb-container" id="honeycombContainer">
+        
+        <!-- ROW 1 (Top 2 Hexagons) -->
+        <div class="hex-row hex-row-1">
+          <!-- Startup / Early Stage -->
+          <div class="hex-card-wrapper" data-hex-index="0">
+            <div class="hex-card c-blue">
+              <div class="hex-card-inner">
+                <div class="hex-icon"><i data-lucide="rocket"></i></div>
+                <h3>Early Stage & Startups</h3>
+                <span class="hex-tag">MVP & Launch</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Growing SMBs -->
+          <div class="hex-card-wrapper" data-hex-index="1">
+            <div class="hex-card c-green">
+              <div class="hex-card-inner">
+                <div class="hex-icon"><i data-lucide="trending-up"></i></div>
+                <h3>Growing SMBs</h3>
+                <span class="hex-tag">Automate & Scale</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="growth-card">
-          <img src="assets/images/growth_smb_business.png" alt="Small & Medium Businesses" loading="lazy" decoding="async">
-          <div class="growth-overlay">
-            <span class="growth-tag"
-              style="background:rgba(72,178,95,0.25); color:#82E6A1; border-color:rgba(72,178,95,0.4);"> SMBs</span>
-            <h3>Small & Medium Businesses</h3>
-            <p>Automating workflows and modernizing IT systems.</p>
+        <!-- ROW 2 (Middle 3 Hexagons: Left, Center Brand Core, Right) -->
+        <div class="hex-row hex-row-2">
+          <!-- E-Commerce Brands -->
+          <div class="hex-card-wrapper" data-hex-index="2">
+            <div class="hex-card c-pink">
+              <div class="hex-card-inner">
+                <div class="hex-icon"><i data-lucide="shopping-cart"></i></div>
+                <h3>E-Commerce Stores</h3>
+                <span class="hex-tag">Sales & Conversion</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CENTER BRAND CORE HEXAGON -->
+          <div class="hex-card-wrapper hex-center-core" data-hex-index="center">
+            <div class="hex-card c-gradient">
+              <div class="hex-card-inner brand-core-light">
+                <img src="assets/logo/logo.png" alt="ZAVYX Infotech Logo" class="hex-center-logo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Agencies -->
+          <div class="hex-card-wrapper" data-hex-index="3">
+            <div class="hex-card c-yellow">
+              <div class="hex-card-inner">
+                <div class="hex-icon"><i data-lucide="briefcase"></i></div>
+                <h3>Service Agencies</h3>
+                <span class="hex-tag">Portals & Booking</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="growth-card">
-          <img src="assets/images/growth_ecommerce_store.png" alt="E-commerce Businesses" loading="lazy" decoding="async">
-          <div class="growth-overlay">
-            <span class="growth-tag"
-              style="background:rgba(215,14,105,0.25); color:#F28CB8; border-color:rgba(215,14,105,0.4);">
-              E-COMMERCE</span>
-            <h3>E-commerce Brands</h3>
-            <p>High-converting stores and custom checkout flows.</p>
+        <!-- ROW 3 (Bottom 2 Hexagons) -->
+        <div class="hex-row hex-row-3">
+          <!-- Scaleups -->
+          <div class="hex-card-wrapper" data-hex-index="4">
+            <div class="hex-card c-cyan">
+              <div class="hex-card-inner">
+                <div class="hex-icon"><i data-lucide="layers"></i></div>
+                <h3>Growing Scaleups</h3>
+                <span class="hex-tag">Cloud & Systems</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enterprise Digital Transformation -->
+          <div class="hex-card-wrapper" data-hex-index="5">
+            <div class="hex-card c-purple">
+              <div class="hex-card-inner">
+                <div class="hex-icon"><i data-lucide="cpu"></i></div>
+                <h3>Enterprise IT</h3>
+                <span class="hex-tag">AI Transformation</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="growth-card">
-          <img src="assets/images/growth_service_agency.png" alt="Service Businesses" loading="lazy" decoding="async">
-          <div class="growth-overlay">
-            <span class="growth-tag"
-              style="background:rgba(245,191,15,0.25); color:#FDE047; border-color:rgba(245,191,15,0.4);"> SERVICE
-              COMPANIES</span>
-            <h3>Service Agencies</h3>
-            <p>Streamlined client portals and booking automation.</p>
-          </div>
-        </div>
-
-        <div class="growth-card">
-          <img src="assets/images/growth_scaleup_tech.png" alt="Growing Companies" loading="lazy" decoding="async">
-          <div class="growth-overlay">
-            <span class="growth-tag"> SCALEUPS</span>
-            <h3>Growing Scaleups</h3>
-            <p>Expanding platform capacity and cloud infrastructure.</p>
-          </div>
-        </div>
-
-        <div class="growth-card">
-          <img src="assets/images/Digital_marketing.jpeg" alt="Digital Transformation" loading="lazy" decoding="async">
-          <div class="growth-overlay">
-            <span class="growth-tag"
-              style="background:rgba(215,14,105,0.25); color:#F28CB8; border-color:rgba(215,14,105,0.4);">
-              ENTERPRISE</span>
-            <h3>Digital Transformation</h3>
-            <p>Legacy software migration and AI automation integration.</p>
-          </div>
-        </div>
       </div>
 
-      <div style="text-align:center; margin-top:32px;">
-        <a href="services.html" class="btn btn-primary" style="font-size:0.95rem;">Explore Our Technology Services →</a>
+      <!-- EXPLORE SERVICES PILL BUTTON WITH CONCENTRIC GLOW RINGS -->
+      <div class="hex-explore-cta">
+        <a href="services.html" class="hex-pill-btn">
+          <span class="pill-ring ring-1"></span>
+          <span class="pill-ring ring-2"></span>
+          <span class="pill-ring ring-3"></span>
+          <span>Explore Services</span>
+          <i data-lucide="arrow-right" style="width: 18px; height: 18px; stroke-width: 2.5;"></i>
+        </a>
       </div>
+
     </div>
   </section>
 
@@ -772,8 +796,7 @@
         var cards = [
           { fillEl: document.getElementById('stat-fill-1'), numEl: document.getElementById('stat-num-1'), target: 9, suffix: '', fill: '90%' },
           { fillEl: document.getElementById('stat-fill-2'), numEl: document.getElementById('stat-num-2'), target: 100, suffix: '%', fill: '100%' },
-          { fillEl: document.getElementById('stat-fill-3'), numEl: document.getElementById('stat-num-3'), target: 1, suffix: '', fill: '100%' },
-          { fillEl: document.getElementById('stat-fill-4'), numEl: document.getElementById('stat-num-4'), target: 100, suffix: '%', fill: '100%' }
+          { fillEl: document.getElementById('stat-fill-3'), numEl: document.getElementById('stat-num-3'), target: 100, suffix: '%', fill: '100%' }
         ];
 
         cards.forEach(function (item, index) {
