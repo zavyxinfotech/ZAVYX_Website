@@ -222,15 +222,17 @@ p {
 
 .btn-primary,
 a.btn-primary {
-  background: linear-gradient(135deg, #23B6F3 0%, #0284C7 100%) !important;
-  color: #fff !important;
-  box-shadow: 0 8px 20px rgba(35, 182, 243, .3);
+  background: linear-gradient(135deg, #23B6F3 0%, #D70E69 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 8px 22px rgba(35, 182, 243, .35);
 }
 
 .btn-primary:hover,
 a.btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(35, 182, 243, .42);
+  background: linear-gradient(135deg, #0284C7 0%, #D70E69 100%) !important;
+  box-shadow: 0 12px 26px rgba(35, 182, 243, .45);
 }
 
 .btn-outline,
@@ -242,12 +244,10 @@ button.btn-outline,
 a.btn.btn-outline,
 .nav-cta a.btn-outline,
 .hero-actions a.btn-outline {
-  background: #FFFFFF !important;
-  color: #0F172A !important;
-  border: 1.5px solid #CBD5E1 !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05) !important;
+  background: linear-gradient(135deg, #48B25F 0%, #23B6F3 100%) !important;
+  color: #ffffff !important;
+  border: 1.5px solid #23B6F3 !important;
+  box-shadow: 0 4px 16px rgba(35, 182, 243, 0.25) !important;
 }
 
 .btn-outline:hover,
@@ -257,32 +257,35 @@ button.btn-outline:hover,
 a.btn.btn-outline:hover,
 .nav-cta a.btn-outline:hover,
 .hero-actions a.btn-outline:hover {
-  background: #0F172A !important;
-  border-color: #0F172A !important;
+  background: linear-gradient(135deg, #23B6F3 0%, #D70E69 100%) !important;
+  border-color: #D70E69 !important;
   color: #ffffff !important;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2) !important;
+  box-shadow: 0 8px 22px rgba(215, 14, 105, 0.35) !important;
   transform: translateY(-2px) !important;
 }
 
 .btn-ghost-light {
-  background: rgba(15, 23, 42, .06);
-  color: #0F172A;
-  border: 1px solid #CBD5E1;
+  background: linear-gradient(135deg, #23B6F3 0%, #0284C7 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid #23B6F3 !important;
+  box-shadow: 0 6px 18px rgba(35, 182, 243, 0.25) !important;
 }
 
 .btn-ghost-light:hover {
-  background: rgba(15, 23, 42, .12);
+  background: linear-gradient(135deg, #D70E69 0%, #F5BF0F 100%) !important;
+  color: #ffffff !important;
   transform: translateY(-2px);
 }
 
 .btn-pink {
-  background: var(--pink);
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(215, 14, 105, .3);
+  background: linear-gradient(135deg, #D70E69 0%, #F5BF0F 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 20px rgba(215, 14, 105, .35);
 }
 
 .btn-pink:hover {
   transform: translateY(-2px);
+  background: linear-gradient(135deg, #D70E69 0%, #23B6F3 100%) !important;
 }
 
 .btn-block {
@@ -315,10 +318,27 @@ a.btn.btn-outline:hover,
 .nav-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 16px 24px;
+  justify-content: flex-start;
+  gap: 32px;
+  padding: 8px 24px;
+  background: #DFE5EE !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   max-width: var(--container);
-  margin: 0 auto;
+  margin: 16px auto 0;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 960px) {
+  .nav-inner {
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
 }
 
 .brand {
@@ -342,8 +362,8 @@ a.btn.btn-outline:hover,
 }
 
 .brand img {
-  height: 78px !important;
-  max-height: 84px !important;
+  height: 52px !important; /* HCL logo is small and neat */
+  max-height: 52px !important;
   width: auto;
   display: block;
 }
@@ -382,12 +402,12 @@ a.btn.btn-outline:hover,
 .nav-links a,
 .nav-links li a,
 .nav-links>li>a {
-  padding: 8px 18px !important;
-  border-radius: 0 !important;
-  font-weight: 700 !important;
-  font-size: 1.22rem !important;
-  letter-spacing: -0.01em;
-  color: #0F172A !important;
+  padding: 8px 14px !important;
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  font-size: 0.94rem !important; /* Scaled down to match sleek reference style */
+  letter-spacing: 0em;
+  color: #1a1a1a !important;
   background: transparent !important;
   background-color: transparent !important;
   border: none !important;
@@ -395,10 +415,10 @@ a.btn.btn-outline:hover,
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   text-shadow: none !important;
-  transition: color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 
 .nav-links a:hover,
@@ -407,34 +427,20 @@ a.btn.btn-outline:hover,
 .nav-links a.active,
 .nav-links li a.active,
 .nav-links>li>a.active {
-  background: transparent !important;
-  background-color: transparent !important;
-  color: #D70E69 !important;
+  background: #FFFFFF !important; /* Pops cleanly out of the grey-blue pill background */
+  background-color: #FFFFFF !important;
+  color: #1a1a1a !important;
   border: none !important;
-  box-shadow: none !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
 }
 
-/* Animated Underline for Desktop Nav */
+/* Animated Underline for Desktop Nav removed to match HCLTech clean pill active state */
 .nav-links:not(.open)>li>a {
   position: relative;
 }
 
 .nav-links:not(.open)>li>a::after {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #23B6F3, #D70E69, #48B25F, #F5BF0F);
-  transition: width 0.3s ease;
-  border-radius: 3px;
-}
-
-.nav-links:not(.open)>li>a:hover::after,
-.nav-links:not(.open)>li>a.active::after {
-  width: 80%;
+  display: none !important;
 }
 
 /* Navbar Sequential Letter Rotation on Hover */
@@ -520,24 +526,24 @@ a.btn.btn-outline:hover,
   transform: scale(1.1) rotate(90deg);
 }
 
-.nav-services {
+.nav-dropdown {
   position: relative;
 }
 
-.nav-services-btn {
-  display: flex;
+.nav-dropdown-btn {
+  display: flex !important;
   align-items: center;
   gap: 6px;
 }
 
-.nav-services-btn svg {
+.nav-dropdown-btn svg {
   width: 14px;
   height: 14px;
   transition: transform .2s ease;
 }
 
-.nav-services:hover .nav-services-btn svg,
-.nav-services.open .nav-services-btn svg {
+.nav-dropdown:hover .nav-dropdown-btn svg,
+.nav-dropdown.open .nav-dropdown-btn svg {
   transform: rotate(180deg);
   color: #0284C7;
 }
@@ -548,13 +554,11 @@ a.btn.btn-outline:hover,
   top: calc(100% + 14px);
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  width: 620px;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid #E2E8F0;
-  border-radius: 18px;
-  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.14);
+  width: 800px; /* Made larger as requested */
+  background: #DFE5EE; /* Match navbar theme */
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px; /* Match navbar pill radius */
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
   padding: 16px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -565,22 +569,27 @@ a.btn.btn-outline:hover,
   z-index: 1200;
 }
 
-.nav-services:hover .mega,
-.nav-services.open .mega {
+.nav-dropdown:hover .mega,
+.nav-dropdown.open .mega {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
 
+.mega.mega-sm {
+  width: 250px;
+  grid-template-columns: 1fr;
+}
+
 .mega a {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 11px 14px;
-  border-radius: 12px;
+  gap: 8px;
+  padding: 11px 16px;
+  border-radius: 6px;
   font-size: 0.94rem;
-  color: #1E293B;
-  font-weight: 400 !important;
+  color: #1a1a1a;
+  font-weight: 500 !important;
   background: transparent !important;
   background-color: transparent !important;
   box-shadow: none !important;
@@ -588,18 +597,31 @@ a.btn.btn-outline:hover,
 }
 
 .mega a:hover {
-  background: transparent !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  color: #0284C7 !important;
+  background: #FFFFFF !important; /* White pill hover to match navbar */
+  background-color: #FFFFFF !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+  color: #1a1a1a !important;
   transform: translateX(3px);
 }
 
 .mega .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex: none;
+  display: none !important; /* Hide colored bullets entirely */
+}
+
+/* Contact Button Special Gradient Glow styling */
+.contact-special-btn {
+  background: linear-gradient(135deg, #0f172a, #1e3a8a) !important; /* Navy blue minimal gradient */
+  background-color: #0f172a !important;
+  color: #FFFFFF !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease !important;
+}
+.contact-special-btn:hover {
+  background: linear-gradient(135deg, #0f172a, #2563eb) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.6) !important; /* Glow animation hover view */
+  transform: translateY(-2px);
 }
 
 /* Hide "All Services Overview" option in Desktop view only */
@@ -617,6 +639,7 @@ a.btn.btn-outline:hover,
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-left: auto; /* Pushes the CTA buttons to the far right inside the flex-start container */
 }
 
 .nav-toggle {
@@ -776,10 +799,11 @@ a.btn.btn-outline:hover,
 
 .nav-links.open>li>a {
   display: block !important;
-  font-size: 0.85rem !important;
-  padding: 8px 16px !important;
-  border-radius: 8px !important;
-  color: #0F172A !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  padding: 10px 16px !important;
+  border-radius: 6px !important;
+  color: #1a1a1a !important;
   letter-spacing: normal !important;
   word-spacing: normal !important;
   transition: all 0.2s ease !important;
@@ -787,8 +811,8 @@ a.btn.btn-outline:hover,
 
 .nav-links.open>li>a:not(.mobile-call-now-btn):hover,
 .nav-links.open>li>a:not(.mobile-call-now-btn):active {
-  background: rgba(35, 182, 243, 0.1) !important;
-  color: #0284C7 !important;
+  background: #F3F4F6 !important;
+  color: #1a1a1a !important;
 }
 
 /* Sidebar Dropdown Accordion inside Navigation Drawer (.nav-links.open) */
@@ -895,7 +919,7 @@ a.btn.btn-outline:hover,
   padding: 8px !important;
   font-size: 0.85rem !important;
   border-radius: 12px !important;
-  background: linear-gradient(135deg, #23B6F3, #D70E69) !important;
+  background: #23B6F3 !important;
   color: #FFFFFF !important;
   width: 85% !important;
   margin: 0 auto !important;
@@ -944,6 +968,38 @@ a.btn.btn-outline:hover,
   box-sizing: border-box;
   padding: 150px 0 60px 0;
   overflow: hidden;
+  color: #FFFFFF !important;
+}
+
+.hero,
+.svc-hero,
+.hero h1,
+.svc-hero h1,
+.hero h2,
+.svc-hero h2,
+.hero h3,
+.svc-hero h3,
+.hero p,
+.svc-hero p,
+.hero-lead,
+.hero .breadcrumb,
+.svc-hero .breadcrumb,
+.hero .breadcrumb a,
+.svc-hero .breadcrumb a {
+  color: #FFFFFF !important;
+}
+
+.hero p,
+.svc-hero p,
+.hero-lead {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.hero .breadcrumb,
+.svc-hero .breadcrumb,
+.hero .breadcrumb a,
+.svc-hero .breadcrumb a {
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .hero::before,
@@ -951,8 +1007,8 @@ a.btn.btn-outline:hover,
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.25) 0%, rgba(248, 250, 252, 0.55) 100%),
-    linear-gradient(to bottom, rgba(248, 250, 252, 0.1) 0%, rgba(248, 250, 252, 0.5) 100%);
+  background: radial-gradient(circle at 80% 20%, rgba(35, 182, 243, 0.25) 0%, transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(215, 14, 105, 0.25) 0%, transparent 60%);
   z-index: 1;
   pointer-events: none;
 }
@@ -965,12 +1021,10 @@ a.btn.btn-outline:hover,
 }
 
 .hero.hero-home {
-  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .14), transparent 45%),
-    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .10), transparent 40%),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.8) 45%, rgba(248, 250, 252, 0.25) 100%),
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(11, 25, 44, 0.84) 45%, rgba(35, 182, 243, 0.35) 78%, rgba(215, 14, 105, 0.28) 100%),
     url('../images/hero_bg_home.png') center center/cover no-repeat,
-    var(--paper) !important;
-  color: var(--ink);
+    #0B192C !important;
+  color: #FFFFFF !important;
 }
 
 .hero.hero-home::before,
@@ -981,37 +1035,30 @@ a.btn.btn-outline:hover,
 }
 
 .hero.hero-about {
-  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .14), transparent 45%),
-    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .10), transparent 40%),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.82) 48%, rgba(248, 250, 252, 0.25) 100%),
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(11, 25, 44, 0.84) 45%, rgba(35, 182, 243, 0.35) 78%, rgba(215, 14, 105, 0.28) 100%),
     url('../images/hero_bg_about.png') center center/cover no-repeat,
-    var(--paper) !important;
-  color: var(--ink);
+    #0B192C !important;
+  color: #FFFFFF !important;
 }
 
 .hero.hero-services {
-  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .14), transparent 45%),
-    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .10), transparent 40%),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.82) 48%, rgba(248, 250, 252, 0.25) 100%),
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(11, 25, 44, 0.84) 45%, rgba(35, 182, 243, 0.35) 78%, rgba(215, 14, 105, 0.28) 100%),
     url('../images/hero_bg_services.png') center center/cover no-repeat,
-    var(--paper) !important;
-  color: var(--ink);
+    #0B192C !important;
+  color: #FFFFFF !important;
 }
 
 .hero.hero-contact {
-  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .14), transparent 45%),
-    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .10), transparent 40%),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.82) 48%, rgba(248, 250, 252, 0.25) 100%),
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(11, 25, 44, 0.84) 45%, rgba(35, 182, 243, 0.35) 78%, rgba(215, 14, 105, 0.28) 100%),
     url('../images/hero_bg_contact.png') center center/cover no-repeat,
-    var(--paper) !important;
-  color: var(--ink);
+    #0B192C !important;
+  color: #FFFFFF !important;
 }
 
 .svc-hero {
-  background: radial-gradient(circle at 85% 40%, rgba(35, 182, 243, 0.10) 0%, transparent 60%),
-    radial-gradient(circle at 15% 20%, rgba(215, 14, 105, 0.08) 0%, transparent 50%),
-    var(--paper);
-  color: var(--ink);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(11, 25, 44, 0.84) 45%, rgba(35, 182, 243, 0.35) 78%, rgba(215, 14, 105, 0.28) 100%),
+    #0B192C !important;
+  color: #FFFFFF !important;
   min-height: 100vh !important;
   min-height: 100dvh !important;
   padding: 140px 0 60px 0;
@@ -1050,77 +1097,59 @@ a.btn.btn-outline:hover,
   }
 }
 
-/* Service Specific Hero Background Images */
+/* Service Specific Hero Background Images in Company Logo Color Theme */
 .svc-hero.hero-websites-web-apps {
-  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .14), transparent 45%),
-    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .10), transparent 40%),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.94) 0%, rgba(248, 250, 252, 0.82) 48%, rgba(248, 250, 252, 0.25) 100%),
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(11, 25, 44, 0.84) 45%, rgba(35, 182, 243, 0.35) 78%, rgba(215, 14, 105, 0.28) 100%),
     url('../images/Websites_Web_apps_service_background.png') center center/cover no-repeat,
-    var(--paper) !important;
+    #0B192C !important;
 }
 
 .svc-hero.hero-ecommerce-stores {
-  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .14), transparent 45%),
-    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .10), transparent 40%),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.94) 0%, rgba(248, 250, 252, 0.82) 48%, rgba(248, 250, 252, 0.25) 100%),
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(11, 25, 44, 0.84) 45%, rgba(35, 182, 243, 0.35) 78%, rgba(215, 14, 105, 0.28) 100%),
     url('../images/E_commerce_Stores_Service_background.png') center center/cover no-repeat,
-    var(--paper) !important;
+    #0B192C !important;
 }
 
 .svc-hero.hero-crm-erp-systems {
-  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .14), transparent 45%),
-    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .10), transparent 40%),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.94) 0%, rgba(248, 250, 252, 0.82) 48%, rgba(248, 250, 252, 0.25) 100%),
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(11, 25, 44, 0.84) 45%, rgba(35, 182, 243, 0.35) 78%, rgba(215, 14, 105, 0.28) 100%),
     url('../images/CRM_ERM_service_background.png') center center/cover no-repeat,
-    var(--paper) !important;
+    #0B192C !important;
 }
 
 .svc-hero.hero-ai-automation {
-  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .14), transparent 45%),
-    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .10), transparent 40%),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.94) 0%, rgba(248, 250, 252, 0.82) 48%, rgba(248, 250, 252, 0.25) 100%),
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(11, 25, 44, 0.84) 45%, rgba(35, 182, 243, 0.35) 78%, rgba(215, 14, 105, 0.28) 100%),
     url('../images/Ai_Automation_service_background.png') center center/cover no-repeat,
-    var(--paper) !important;
+    #0B192C !important;
 }
 
 .svc-hero.hero-branding-creative {
-  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .14), transparent 45%),
-    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .10), transparent 40%),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.94) 0%, rgba(248, 250, 252, 0.82) 48%, rgba(248, 250, 252, 0.25) 100%),
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(11, 25, 44, 0.84) 45%, rgba(35, 182, 243, 0.35) 78%, rgba(215, 14, 105, 0.28) 100%),
     url('../images/Branding_creative_service_background.png') center center/cover no-repeat,
-    var(--paper) !important;
+    #0B192C !important;
 }
 
 .svc-hero.hero-digital-marketing-seo {
-  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .14), transparent 45%),
-    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .10), transparent 40%),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.94) 0%, rgba(248, 250, 252, 0.82) 48%, rgba(248, 250, 252, 0.25) 100%),
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(11, 25, 44, 0.84) 45%, rgba(35, 182, 243, 0.35) 78%, rgba(215, 14, 105, 0.28) 100%),
     url('../images/Digital_marketing_SEO_service_background.png') center center/cover no-repeat,
-    var(--paper) !important;
+    #0B192C !important;
 }
 
 .svc-hero.hero-cloud-infrastructure {
-  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .14), transparent 45%),
-    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .10), transparent 40%),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.94) 0%, rgba(248, 250, 252, 0.82) 48%, rgba(248, 250, 252, 0.25) 100%),
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(11, 25, 44, 0.84) 45%, rgba(35, 182, 243, 0.35) 78%, rgba(215, 14, 105, 0.28) 100%),
     url('../images/Cloud_Infrastructure_service_background.png') center center/cover no-repeat,
-    var(--paper) !important;
+    #0B192C !important;
 }
 
 .svc-hero.hero-mobile-apps {
-  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .14), transparent 45%),
-    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .10), transparent 40%),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.94) 0%, rgba(248, 250, 252, 0.82) 48%, rgba(248, 250, 252, 0.25) 100%),
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(11, 25, 44, 0.84) 45%, rgba(35, 182, 243, 0.35) 78%, rgba(215, 14, 105, 0.28) 100%),
     url('../images/hero_collaboration_tech_bg.png') center center/cover no-repeat,
-    var(--paper) !important;
+    #0B192C !important;
 }
 
 .svc-hero.hero-whatsapp-api-bots {
-  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .14), transparent 45%),
-    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .10), transparent 40%),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.94) 0%, rgba(248, 250, 252, 0.82) 48%, rgba(248, 250, 252, 0.25) 100%),
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(11, 25, 44, 0.84) 45%, rgba(35, 182, 243, 0.35) 78%, rgba(215, 14, 105, 0.28) 100%),
     url('../images/bg_3d_challenge_solution.png') center center/cover no-repeat,
-    var(--paper) !important;
+    #0B192C !important;
 }
 
 
@@ -1211,7 +1240,7 @@ a.btn.btn-outline:hover,
   font-size: clamp(2.5rem, 5.5vw, 4.2rem);
   font-weight: 700;
   line-height: 1.15;
-  color: #0F172A !important;
+  color: #FFFFFF !important;
   text-shadow: none;
   margin-bottom: 24px;
 }
@@ -1221,7 +1250,7 @@ a.btn.btn-outline:hover,
 .hero.hero-services h1,
 .hero.hero-contact h1,
 .svc-hero h1 {
-  color: #0F172A !important;
+  color: #FFFFFF !important;
   text-shadow: none !important;
 }
 
@@ -1230,7 +1259,7 @@ a.btn.btn-outline:hover,
 .svc-hero p {
   font-size: clamp(1.05rem, 2vw, 1.25rem);
   line-height: 1.6;
-  color: #475569 !important;
+  color: rgba(255, 255, 255, 0.95) !important;
   text-shadow: none !important;
   max-width: 680px;
   margin-bottom: 36px;
@@ -1239,10 +1268,8 @@ a.btn.btn-outline:hover,
 .logo-gradient-text,
 .hero h1 span.logo-gradient-text,
 .svc-hero h1 span.logo-gradient-text {
-  background: linear-gradient(135deg, #23B6F3 0%, #48B25F 33%, #D70E69 66%, #F5BF0F 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
+  color: #23B6F3 !important;
+  -webkit-text-fill-color: #23B6F3 !important;
   display: inline-block;
 }
 
@@ -3799,7 +3826,7 @@ footer ul li a:hover {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #23B6F3, #D70E69);
+  background: #23B6F3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4147,27 +4174,27 @@ footer ul li a:hover {
    SERVICE LANDING PAGE TEMPLATE
    ========================================================= */
 .svc-hero {
-  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .14), transparent 45%),
-    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .10), transparent 40%),
+  background: radial-gradient(circle at 15% 20%, rgba(35, 182, 243, .24), transparent 45%),
+    radial-gradient(circle at 85% 0%, rgba(215, 14, 105, .20), transparent 40%),
     url('../images/hero_bg_services.png') center/cover no-repeat,
-    var(--paper) !important;
-  color: var(--ink);
+    #0A1128 !important;
+  color: #FFFFFF !important;
   padding: 120px 0 60px;
 }
 
 .svc-hero .eyebrow {
-  background: rgba(35, 182, 243, .08);
-  border-color: rgba(35, 182, 243, .25);
-  color: var(--blue-dark);
+  background: rgba(35, 182, 243, .15);
+  border-color: rgba(35, 182, 243, .4);
+  color: #23B6F3;
 }
 
 .svc-hero h1 {
-  color: #0F172A !important;
+  color: #FFFFFF !important;
   text-shadow: none;
 }
 
 .svc-hero p {
-  color: #475569 !important;
+  color: rgba(255, 255, 255, 0.92) !important;
   max-width: 600px;
 }
 
@@ -4521,7 +4548,7 @@ footer,
   left: 50%;
   width: 250vmax;
   height: 250vmax;
-  background-color: #0E1217; /* Exact match to the laptop mockup edge color shade */
+  background-color: var(--paper);
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
   transform-origin: center;
@@ -4555,10 +4582,7 @@ footer,
   font-size: clamp(3.2rem, 7.5vw, 6.8rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #0F172A 0%, #0284C7 45%, #D70E69 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #0F172A;
   margin-bottom: 20px;
   text-shadow: none;
   text-transform: uppercase;
@@ -5979,6 +6003,21 @@ footer,
   padding: 70px 0;
   position: relative;
   overflow: hidden;
+  z-index: 1;
+}
+
+.hex-growth-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/business_growth_bg.png') center/cover no-repeat;
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .honeycomb-container {
@@ -6016,11 +6055,22 @@ footer,
   width: 175px !important;
   height: 200px !important;
   position: relative;
-  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.45s ease, z-index 0.45s ease;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease, filter 0.45s ease, z-index 0.45s ease;
   filter: drop-shadow(0 10px 20px rgba(15, 23, 42, 0.08));
   z-index: 2;
   cursor: pointer;
   flex-shrink: 0;
+  opacity: 1;
+}
+
+.hex-card-wrapper.hex-scroll-bottom {
+  transform: translateX(-120px) rotate(-30deg) scale(0.6) !important;
+  opacity: 0;
+}
+
+.hex-card-wrapper.hex-scroll-top {
+  transform: translateX(120px) rotate(30deg) scale(0.6) !important;
+  opacity: 0;
 }
 
 /* 3D Forward Move & Scale Up Animation when Hex Card is Active or Hovered */
@@ -6068,7 +6118,7 @@ footer,
 }
 
 .hex-card.c-gradient {
-  background: linear-gradient(135deg, #23B6F3, #D70E69);
+  background: #23B6F3;
 }
 
 .hex-card-wrapper.hex-active .hex-card,
@@ -6268,50 +6318,50 @@ footer,
   }
 
   .hex-row-2 {
-    margin-top: -24px !important;
+    margin-top: -28px !important;
   }
 
   .hex-row-3 {
-    margin-top: -24px !important;
+    margin-top: -28px !important;
   }
 
   .hex-card-wrapper {
-    width: 105px !important;
-    height: 120px !important;
+    width: 126px !important;
+    height: 144px !important;
   }
 
   .hex-card-inner {
-    padding: 8px 4px !important;
+    padding: 10px 4px !important;
   }
 
   .hex-icon {
-    width: 28px !important;
-    height: 28px !important;
-    margin-bottom: 4px !important;
+    width: 32px !important;
+    height: 32px !important;
+    margin-bottom: 6px !important;
   }
 
   .hex-icon svg {
-    width: 14px !important;
-    height: 14px !important;
+    width: 16px !important;
+    height: 16px !important;
   }
 
   .brand-icon img {
-    max-width: 18px !important;
-    max-height: 18px !important;
+    max-width: 22px !important;
+    max-height: 22px !important;
   }
 
   .hex-card-inner h3 {
-    font-size: 0.62rem !important;
-    margin-bottom: 2px !important;
+    font-size: 0.72rem !important;
+    margin-bottom: 4px !important;
   }
 
   .hex-tag {
-    font-size: 0.5rem !important;
+    font-size: 0.55rem !important;
   }
 
   .hex-card-wrapper.hex-active,
   .hex-card-wrapper:hover {
-    transform: scale(1.28) translateZ(30px) !important;
+    transform: scale(1.15) translateZ(30px) !important;
   }
 
   .hex-pill-btn {
@@ -6322,17 +6372,21 @@ footer,
 
 @media (max-width: 420px) {
   .hex-card-wrapper {
-    width: 92px !important;
-    height: 106px !important;
+    width: 110px !important;
+    height: 126px !important;
   }
 
   .hex-row-2,
   .hex-row-3 {
-    margin-top: -20px !important;
+    margin-top: -25px !important;
   }
 
   .hex-card-inner h3 {
-    font-size: 0.58rem !important;
+    font-size: 0.65rem !important;
+  }
+  
+  .hex-tag {
+    font-size: 0.52rem !important;
   }
 }
 
@@ -6552,4 +6606,395 @@ footer,
     line-height: 1.6 !important;
     color: #475569 !important;
   }
+}
+
+/* ==========================================================================
+   OUR CORE TECHNOLOGY CAPABILITIES — 3D PERSPECTIVE FLOW & SCROLL MOTION
+   ========================================================================== */
+
+/* 1. Subnav Capsule Buttons Bar */
+.services-subnav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8) !important;
+  padding: 14px 0 !important;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05) !important;
+}
+
+.subnav-scroll {
+  display: flex !important;
+  gap: 12px !important;
+  overflow-x: auto !important;
+  scroll-behavior: smooth !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  padding: 6px 4px !important;
+}
+
+.subnav-scroll::-webkit-scrollbar {
+  display: none !important;
+}
+
+.subnav-scroll a {
+  font-family: var(--font-mono) !important;
+  font-size: 0.84rem !important;
+  font-weight: 600 !important;
+  padding: 10px 20px !important;
+  border-radius: 999px !important;
+  background: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #475569 !important;
+  white-space: nowrap !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+  flex-shrink: 0 !important;
+}
+
+.subnav-scroll a:hover,
+.subnav-scroll a.active {
+  background: #23B6F3 !important;
+  color: #FFFFFF !important;
+  border-color: transparent !important;
+  box-shadow: 0 6px 20px rgba(35, 182, 243, 0.35) !important;
+  transform: translateY(-2px) scale(1.04) !important;
+}
+
+/* 2. 3D Arc / Curved Perspective Layout for Cards Grid */
+.services-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 28px !important;
+  perspective: 1200px !important;
+  padding: 24px 8px !important;
+}
+
+/* Base Service Card Styling */
+.services-grid .svc-card {
+  position: relative !important;
+  height: 390px !important;
+  border-radius: 24px !important;
+  padding: 3px !important; /* Gradient Border Thickness */
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  text-decoration: none !important;
+  transform-style: preserve-3d !important;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.1) !important;
+  background: #23B6F3 !important;
+}
+
+/* Brand Logo Color Theme Variations for Gradient Borders */
+.services-grid .svc-card.c-blue {
+  background: #23B6F3 !important;
+}
+.services-grid .svc-card.c-pink {
+  background: #D70E69 !important;
+}
+.services-grid .svc-card.c-green {
+  background: #48B25F !important;
+}
+.services-grid .svc-card.c-yellow {
+  background: #F5BF0F !important;
+}
+
+/* Inner Card Wrapper */
+.services-grid .svc-card::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 3px !important;
+  border-radius: 21px !important;
+  background: #0B1F3A !important;
+  z-index: 1 !important;
+}
+
+/* Full-bleed Card Background Image */
+.services-grid .svc-card-bg {
+  position: absolute !important;
+  inset: 3px !important;
+  width: calc(100% - 6px) !important;
+  height: calc(100% - 6px) !important;
+  border-radius: 21px !important;
+  overflow: hidden !important;
+  z-index: 2 !important;
+}
+
+.services-grid .svc-card-bg img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 21px !important;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Gradient Overlay over Image */
+.services-grid .svc-card-overlay {
+  position: absolute !important;
+  inset: 3px !important;
+  border-radius: 21px !important;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.45) 50%, rgba(15, 23, 42, 0.95) 100%) !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+}
+
+/* Floating White Top-Left Icon Badge (Image 1 Alignment) */
+.services-grid .svc-card-top {
+  position: absolute !important;
+  top: 18px !important;
+  left: 18px !important;
+  z-index: 10 !important;
+}
+
+.services-grid .svc-card-top .icon {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 14px !important;
+  background: #FFFFFF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  transition: transform 0.3s ease !important;
+}
+
+/* Logo Color Theme Icons inside White Badge */
+.services-grid .svc-card.c-blue .svc-card-top .icon i,
+.services-grid .svc-card.c-blue .svc-card-top .icon svg {
+  color: #23B6F3 !important;
+}
+.services-grid .svc-card.c-pink .svc-card-top .icon i,
+.services-grid .svc-card.c-pink .svc-card-top .icon svg {
+  color: #D70E69 !important;
+}
+.services-grid .svc-card.c-green .svc-card-top .icon i,
+.services-grid .svc-card.c-green .svc-card-top .icon svg {
+  color: #48B25F !important;
+}
+.services-grid .svc-card.c-yellow .svc-card-top .icon i,
+.services-grid .svc-card.c-yellow .svc-card-top .icon svg {
+  color: #F5BF0F !important;
+}
+
+/* Card Content (Bottom Aligned Text & Link) */
+.services-grid .svc-card-content {
+  position: relative !important;
+  z-index: 5 !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  padding: 24px 22px !important;
+}
+
+.services-grid .svc-card h3 {
+  font-family: var(--font-display) !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
+  margin: 0 0 6px 0 !important;
+}
+
+.services-grid .svc-card p.svc-desc {
+  font-size: 0.88rem !important;
+  line-height: 1.45 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  margin: 0 0 14px 0 !important;
+  display: -webkit-box !important;
+  line-clamp: 2 !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+.services-grid .svc-card .go {
+  font-family: var(--font-mono) !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: #7FD4FB !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: transform 0.25s ease, color 0.25s ease !important;
+}
+
+/* ==========================================================================
+   3D CURVED COVERFLOW ARC REEL — EXACT MATCH FOR REFERENCE IMAGE
+   ========================================================================== */
+
+/* Sticky Tracking Container */
+.core-tech-scroll-track {
+  position: relative !important;
+}
+
+.core-tech-sticky-container {
+  position: sticky !important;
+  top: 0 !important;
+  height: 100vh !important;
+  width: 100vw !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+.core-tech-sticky-container .section-head {
+  padding-bottom: 24px !important;
+}
+
+/* Outer Stage Container */
+.core-tech-3d-stage {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 20px 0 !important;
+  height: 440px !important;
+  perspective: 1000px !important;
+  perspective-origin: 50% 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 3D Arc Track */
+.services-grid.curved-3d-reel {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transform-style: preserve-3d !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  margin: 0 auto !important;
+}
+
+/* Individual Card 3D Arc Positioning */
+.services-grid.curved-3d-reel .svc-card {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 250px !important;
+  height: 380px !important;
+  margin-top: -190px !important;
+  margin-left: -125px !important;
+  border-radius: 24px !important;
+  padding: 0 !important;
+  border: none !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
+  transform-style: preserve-3d !important;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease, filter 0.6s ease, box-shadow 0.4s ease !important;
+  will-change: transform, opacity;
+  cursor: pointer !important;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14) !important;
+  background: #23B6F3 !important;
+}
+
+/* Explicit inset rendering to prevent border clipping issues across mobile browsers */
+.services-grid.curved-3d-reel .svc-card .svc-card-bg,
+.services-grid.curved-3d-reel .svc-card .svc-card-overlay {
+  inset: 3px !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 21px !important;
+}
+
+
+/* Hover Animation on Center Card */
+.services-grid.curved-3d-reel .svc-card:hover .svc-card-bg img {
+  transform: scale(1.1) !important;
+}
+
+.services-grid.curved-3d-reel .svc-card:hover .svc-card-top .icon {
+  transform: scale(1.1) rotate(-4deg) !important;
+}
+
+.services-grid.curved-3d-reel .svc-card:hover .go {
+  color: #FFFFFF !important;
+  transform: translateX(6px) !important;
+}
+
+/* Mobile Responsive 3D Stage Scaling */
+@media (max-width: 768px) {
+  .core-tech-3d-stage {
+    height: 300px !important;
+    perspective: 800px !important;
+  }
+
+  .services-grid.curved-3d-reel .svc-card {
+    width: 160px !important;
+    height: 250px !important;
+    margin-top: -125px !important;
+    margin-left: -80px !important;
+    border-radius: 16px !important;
+  }
+
+  .services-grid.curved-3d-reel .svc-card .svc-card-bg,
+  .services-grid.curved-3d-reel .svc-card .svc-card-overlay {
+    inset: 3px !important;
+    border-radius: 13px !important;
+  }
+
+
+  .services-grid.curved-3d-reel .svc-card-top {
+    top: 8px !important;
+    left: 8px !important;
+  }
+
+  .services-grid.curved-3d-reel .svc-card-top .icon {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 8px !important;
+  }
+
+  .services-grid.curved-3d-reel .svc-card h3 {
+    font-size: 0.85rem !important;
+  }
+
+  .services-grid.curved-3d-reel .svc-card p.svc-desc {
+    font-size: 0.65rem !important;
+    margin-bottom: 4px !important;
+    line-height: 1.3 !important;
+  }
+}
+
+/* Master High-Contrast Hero Typography & Brand Gradient Overrides */
+html body .hero h1,
+html body .svc-hero h1 {
+  color: #FFFFFF !important;
+  text-shadow: none !important;
+}
+
+html body .hero p,
+html body .svc-hero p,
+html body .hero .hero-lead,
+html body .svc-hero .hero-lead {
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-shadow: none !important;
+}
+
+html body .hero .breadcrumb,
+html body .svc-hero .breadcrumb,
+html body .hero .breadcrumb a,
+html body .svc-hero .breadcrumb a {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html body .logo-gradient-text,
+html body .hero h1 .logo-gradient-text,
+html body .svc-hero h1 .logo-gradient-text,
+html body span.logo-gradient-text {
+  color: #23B6F3 !important;
+  -webkit-text-fill-color: #23B6F3 !important;
+  display: inline-block !important;
 }

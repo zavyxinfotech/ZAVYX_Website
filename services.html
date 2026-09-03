@@ -16,7 +16,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=4">
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
@@ -78,16 +78,16 @@
   <section class="hero hero-services" style="padding-bottom:20px;">
     <div class="container">
       <span class="eyebrow"
-        style="color: #F5BF0F; font-weight: 700; letter-spacing: 0.08em; background: rgba(245, 191, 15, 0.1); padding: 6px 18px; border-radius: 999px; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(245, 191, 15, 0.3);">OUR
+        style="color: #F5BF0F; font-weight: 700; letter-spacing: 0.08em; background: rgba(245, 191, 15, 0.15); padding: 6px 18px; border-radius: 999px; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(245, 191, 15, 0.4);">OUR
         SERVICES</span>
-      <h1><span style="color: #23B6F3 !important;">Digital</span> & <span
+      <h1 style="color: #FFFFFF !important;"><span style="color: #23B6F3 !important;">Digital</span> & <span
           style="color: #48B25F !important;">Technology</span> Services<br><span class="logo-gradient-text"
           style="background: linear-gradient(135deg, #23B6F3, #48B25F, #D70E69, #F5BF0F) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important;">for
           Modern Businesses</span></h1>
-      <p class="hero-lead">From <span style="color: #0B1F3A; font-weight: 600;">websites</span> and <span
-          style="color: #0B1F3A; font-weight: 600;">software</span> to <span
-          style="color: #0B1F3A; font-weight: 600;">AI automation</span> and <span
-          style="color: #0B1F3A; font-weight: 600;">mobile apps</span>, ZAVYX Infotech builds solutions tailored to your
+      <p class="hero-lead" style="color: rgba(255, 255, 255, 0.92) !important;">From <span style="color: #23B6F3; font-weight: 600;">websites</span> and <span
+          style="color: #F5BF0F; font-weight: 600;">software</span> to <span
+          style="color: #D70E69; font-weight: 600;">AI automation</span> and <span
+          style="color: #48B25F; font-weight: 600;">mobile apps</span>, ZAVYX Infotech builds solutions tailored to your
         business.</p>
       <div class="hero-actions" style="margin-top:24px;">
         <a href="contact.html" class="btn btn-primary">Discuss Your Requirements</a>
@@ -95,31 +95,15 @@
     </div>
   </section>
 
-  <!-- STICKY ANCHOR SUBNAV -->
-  <nav class="services-subnav">
-    <div class="container">
-      <div class="subnav-scroll">
-        <a href="#websites-web-apps">Web & Apps</a>
-        <a href="#ecommerce">E-commerce</a>
-        <a href="#crm-erp">CRM & ERP</a>
-        <a href="#whatsapp-api">WhatsApp</a>
-        <a href="#ai-automation">AI & Automation</a>
-        <a href="#mobile-apps">Mobile Apps</a>
-        <a href="#digital-marketing">SEO & Marketing</a>
-        <a href="#branding">Branding</a>
-        <a href="#cloud-infrastructure">Cloud & DevOps</a>
-      </div>
-    </div>
-  </nav>
-
   <!-- OVERVIEW CARDS GRID -->
-  <section class="section-tight">
-    <div class="container">
-      <div class="section-head center">
+  <section class="section-tight core-tech-scroll-track" style="height: 350vh;">
+    <div class="core-tech-sticky-container">
+      <div class="section-head center" style="padding-top: 60px;">
         <span class="eyebrow">Service Directory</span>
         <h2>Our Core Technology Capabilities</h2>
       </div>
-      <div class="services-grid">
+      <div class="core-tech-3d-stage">
+        <div class="services-grid curved-3d-reel">
         <a href="services/websites-web-apps.html" id="websites-web-apps" class="svc-card c-blue reveal">
           <div class="svc-card-bg"><img src="assets/images/websites_and_Web_appsjpeg.jpeg" alt="Websites & Web Apps" loading="lazy" decoding="async">
           </div>
@@ -240,6 +224,7 @@
             <span class="go">Explore service →</span>
           </div>
         </a>
+        </div>
       </div>
     </div>
   </section>
@@ -542,9 +527,8 @@
         <p>Tell us what you're trying to achieve and we'll point you in the right direction — clear plan, honest
           estimate, no jargon.</p>
         <div class="cta-actions">
-          <a href="contact.html" class="btn btn-ghost-light" class="btn btn-ghost-light" class="btn btn-primary" style="padding: 14px 34px; font-weight: 600; background: linear-gradient(135deg, #23B6F3 0%, #D70E69 100%); color: #ffffff; border: none; border-radius: 999px; ">Start a Project</a>
-          <a href="https://wa.me/916382721178" target="_blank" rel="noopener" class="btn btn-ghost-light">Chat on
-            WhatsApp</a>
+          <a href="contact.html" class="btn btn-primary">Start a Project</a>
+          <a href="https://wa.me/916382721178" target="_blank" rel="noopener" class="btn btn-outline">Chat on WhatsApp</a>
         </div>
       </div>
     </div>
@@ -679,7 +663,7 @@
       <span class="fab-label">Zedex AI Assistant</span>
       <button class="fab fab-bot-trigger" aria-label="Open Zedex AI assistant" title="Open Zedex AI assistant">
         <div class="fab-spin-border"></div>
-        <img src="assets/images/zavyx_chatbot_3d.png" alt="Zedex AI Assistant" class="fab-bot-3d-img" / loading="lazy" decoding="async">
+        <img src="assets/images/zavyx_chatbot_3d.png" alt="Zedex AI Assistant" class="fab-bot-3d-img" loading="lazy" decoding="async">
       </button>
     </div>
   </div>

@@ -631,5 +631,189 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   initHexagonHoverAnimation();
+
+  /* ---------- Hexagon Scroll Motion ---------- */
+  function initHexagonScrollMotion() {
+    var hexWrappers = document.querySelectorAll('.hex-card-wrapper');
+    if (!hexWrappers.length) return;
+
+    var ticking = false;
+
+    function updateHexMotion() {
+      var windowHeight = window.innerHeight;
+
+      hexWrappers.forEach(function (card) {
+        var rect = card.getBoundingClientRect();
+        
+        // If card is below viewport (user scrolling down towards section)
+        if (rect.top > windowHeight - 40) {
+          card.classList.remove('hex-scroll-in', 'hex-scroll-top');
+          card.classList.add('hex-scroll-bottom');
+        }
+        // If card is above viewport (user scrolling up out of section)
+        else if (rect.bottom < 60) {
+          card.classList.remove('hex-scroll-in', 'hex-scroll-bottom');
+          card.classList.add('hex-scroll-top');
+        }
+        // Inside viewport: animate into original position
+        else {
+          card.classList.remove('hex-scroll-bottom', 'hex-scroll-top');
+          card.classList.add('hex-scroll-in');
+        }
+      });
+
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(updateHexMotion);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    updateHexMotion();
+  }
+
+  initHexagonScrollMotion();
+
+  /* ---------- 3D Curved Arc Coverflow Reel Engine ---------- */
+  function init3DCurvedArcReel() {
+    var cards = document.querySelectorAll('.services-grid.curved-3d-reel .svc-card');
+    var section = document.querySelector('.core-tech-scroll-track');
+
+    if (!cards.length || !section) return;
+
+    var activeIndex = 0;
+    var totalCards = cards.length;
+
+    function render3DArc() {
+      var isMobile = window.innerWidth <= 768;
+      // Spacing & rotation angles matching reference image 3D curved arc
+      var spacing = isMobile ? 140 : 270;
+      var rotateAngle = isMobile ? 18 : 16;
+      var zDistance = isMobile ? 60 : 120;
+      var half = Math.floor(totalCards / 2);
+
+      cards.forEach(function (card, index) {
+        var offset = index - activeIndex;
+        // Wrap offset to be between -half and half for continuous infinite looping
+        while (offset > half) offset -= totalCards;
+        while (offset < -half) offset += totalCards;
+
+        var absOffset = Math.abs(offset);
+
+        if (absOffset > 6) {
+          card.style.opacity = '0';
+          card.style.pointerEvents = 'none';
+          card.style.transform = 'translate3d(0,0,-400px) scale(0.5)';
+          return;
+        }
+
+        var translateX = offset * spacing;
+        var translateZ = -absOffset * zDistance;
+        // Positive offset (right cards) gets positive rotation (right edge goes back)
+        // Negative offset (left cards) gets negative rotation (left edge goes back)
+        // This forms a convex "inward" curved cylinder matching the reference image.
+        var rotateY = offset * rotateAngle;
+        var scale = offset === 0 ? 1.05 : Math.max(0.5, 1 - absOffset * 0.12);
+        
+        var opacity = 1;
+        if (absOffset === 2) opacity = 0.85;
+        if (absOffset === 3) opacity = 0.45;
+        if (absOffset >= 4) opacity = 0.15;
+
+        var zIndex = 100 - absOffset * 10;
+
+        card.style.opacity = opacity.toString();
+        card.style.zIndex = zIndex.toString();
+        card.style.pointerEvents = absOffset <= 2 ? 'auto' : 'none';
+        card.style.transform = 'translateX(' + translateX + 'px) translateZ(' + translateZ + 'px) rotateY(' + rotateY + 'deg) scale(' + scale + ')';
+
+        if (offset === 0) {
+          card.style.boxShadow = '0 25px 60px rgba(35, 182, 243, 0.4), 0 0 30px rgba(215, 14, 105, 0.25)';
+        } else {
+          card.style.boxShadow = '0 12px 30px rgba(15, 23, 42, 0.12)';
+        }
+      });
+    }
+
+    // Click on card to select it
+    cards.forEach(function (card, index) {
+      card.addEventListener('click', function (e) {
+        if (index !== activeIndex) {
+          e.preventDefault();
+          activeIndex = index;
+          render3DArc();
+        }
+      });
+    });
+
+    // Scroll-driven rotation through the sticky track section
+    var ticking = false;
+    function onScroll() {
+      if (!ticking && section) {
+        requestAnimationFrame(function () {
+          var rect = section.getBoundingClientRect();
+          var windowHeight = window.innerHeight;
+          
+          if (rect.top <= 0 && rect.bottom >= windowHeight) {
+            var maxScroll = rect.height - windowHeight;
+            var scrollProgress = Math.abs(rect.top) / maxScroll;
+            scrollProgress = Math.max(0, Math.min(0.999, scrollProgress));
+            var newIndex = Math.floor(scrollProgress * totalCards);
+            if (newIndex !== activeIndex) {
+              activeIndex = newIndex;
+              render3DArc();
+            }
+          } else if (rect.top > 0) {
+            if (activeIndex !== 0) {
+              activeIndex = 0;
+              render3DArc();
+            }
+          } else if (rect.bottom < windowHeight) {
+            if (activeIndex !== totalCards - 1) {
+              activeIndex = totalCards - 1;
+              render3DArc();
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', render3DArc, { passive: true });
+
+    // Touch swipe support on mobile viewports
+    var startX = 0;
+    var stage = document.querySelector('.core-tech-3d-stage');
+    if (stage) {
+      stage.addEventListener('touchstart', function (e) {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+
+      stage.addEventListener('touchend', function (e) {
+        var endX = e.changedTouches[0].clientX;
+        var diffX = startX - endX;
+        if (Math.abs(diffX) > 30) {
+          if (diffX > 0) {
+            activeIndex = (activeIndex + 1) % totalCards;
+            render3DArc();
+          } else if (diffX < 0) {
+            activeIndex = (activeIndex - 1 + totalCards) % totalCards;
+            render3DArc();
+          }
+        }
+      }, { passive: true });
+    }
+
+    render3DArc();
+  }
+
+  init3DCurvedArcReel();
 });
 

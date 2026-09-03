@@ -16,7 +16,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css?v=4" />
+  <link rel="stylesheet" href="assets/css/style.css?v=7" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
@@ -36,40 +36,72 @@
   <header class="navbar">
     <div class="nav-inner">
       <a href="index.html" class="brand">
-        <img src="assets/logo/logo.png" alt="ZAVYX Infotech logo" onerror="this.style.display = 'none'" / loading="lazy"
+        <img src="assets/logo/logo.png" alt="ZAVYX Infotech logo" onerror="this.style.display = 'none'" loading="lazy"
           decoding="async">
       </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html" class="">About Us</a></li>
-          <li class="nav-services">
-            <a href="services.html" class="nav-services-btn">Services
+          <!-- HOME -->
+          <li class="nav-dropdown">
+            <a href="index.html" class="nav-dropdown-btn active">Home
+              <i data-lucide="chevron-down"></i>
+            </a>
+            <div class="mega mega-sm">
+              <a href="index.html#hero">Hero Section</a>
+              <a href="index.html#services">Services Overview</a>
+              <a href="index.html#deliver">How We Deliver</a>
+              <a href="index.html#why-choose-us">Why Zavyx</a>
+              <a href="index.html#tools">Tools & Tech</a>
+              <a href="index.html#testimonials">Testimonials</a>
+            </div>
+          </li>
+          
+          <!-- ABOUT US -->
+          <li class="nav-dropdown">
+            <a href="about.html" class="nav-dropdown-btn">About Us
+              <i data-lucide="chevron-down"></i>
+            </a>
+            <div class="mega mega-sm">
+              <a href="about.html#company">Company Overview</a>
+              <a href="about.html#mission">Mission & Vision</a>
+              <a href="about.html#team">Our Team</a>
+              <a href="about.html#capabilities">Tech Capabilities</a>
+              <a href="about.html#culture">Our Culture</a>
+              <a href="about.html#careers">Careers</a>
+            </div>
+          </li>
+
+          <!-- SERVICES -->
+          <li class="nav-dropdown">
+            <a href="services.html" class="nav-dropdown-btn">Services
               <i data-lucide="chevron-down"></i>
             </a>
             <div class="mega">
-              <a href="services.html" class="mega-all-services" style="grid-column: 1 / -1; font-weight: 700; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 8px; margin-bottom: 4px; color: #23B6F3;"><span class="dot" style="background: #23b6f3"></span>All Services Overview →</a>
-              <a href="services/websites-web-apps.html"><span class="dot" style="background: #23b6f3"></span>Websites &
-                Web Apps</a>
-              <a href="services/ecommerce-stores.html"><span class="dot" style="background: #d70e69"></span>E-commerce
-                Stores</a>
-              <a href="services/crm-erp-systems.html"><span class="dot" style="background: #48b25f"></span>CRM & ERP
-                Systems</a>
-              <a href="services/whatsapp-api-bots.html"><span class="dot" style="background: #48b25f"></span>WhatsApp
-                API & Bots</a>
-              <a href="services/ai-automation.html"><span class="dot" style="background: #23b6f3"></span>AI &
-                Automation</a>
-              <a href="services/mobile-apps.html"><span class="dot" style="background: #d70e69"></span>Mobile Apps (iOS
-                & Android)</a>
-              <a href="services/digital-marketing-seo.html"><span class="dot" style="background: #f5bf0f"></span>Digital
-                Marketing & SEO</a>
-              <a href="services/branding-creative.html"><span class="dot" style="background: #d70e69"></span>Branding &
-                Creative</a>
-              <a href="services/cloud-infrastructure.html"><span class="dot" style="background: #23b6f3"></span>Cloud &
-                Infrastructure</a>
+              <a href="services.html" class="mega-all-services" style="grid-column: 1 / -1; font-weight: 700; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 8px; margin-bottom: 4px; color: #1a1a1a;">All Services Overview →</a>
+              <a href="services/websites-web-apps.html">Websites & Web Apps</a>
+              <a href="services/ecommerce-stores.html">E-commerce Stores</a>
+              <a href="services/crm-erp-systems.html">CRM & ERP Systems</a>
+              <a href="services/whatsapp-api-bots.html">WhatsApp API & Bots</a>
+              <a href="services/ai-automation.html">AI & Automation</a>
+              <a href="services/mobile-apps.html">Mobile Apps (iOS & Android)</a>
+              <a href="services/digital-marketing-seo.html">Digital Marketing & SEO</a>
+              <a href="services/branding-creative.html">Branding & Creative</a>
+              <a href="services/cloud-infrastructure.html">Cloud & Infrastructure</a>
             </div>
           </li>
-          <li><a href="contact.html" class="">Contact</a></li>
+
+          <!-- CONTACT -->
+          <li class="nav-dropdown">
+            <a href="contact.html" class="nav-dropdown-btn contact-special-btn">Contact
+              <i data-lucide="chevron-down"></i>
+            </a>
+            <div class="mega mega-sm">
+              <a href="contact.html#locations">Office Locations</a>
+              <a href="contact.html#support">Customer Support</a>
+              <a href="contact.html#sales">Sales Inquiries</a>
+              <a href="contact.html#faq">FAQ</a>
+            </div>
+          </li>
         </ul>
       </nav>
       <div class="nav-cta">
@@ -84,30 +116,30 @@
     <div class="container">
       <div class="hero-content-wrapper" style="max-width: 740px;">
         <span class="eyebrow"
-          style="color: #F5BF0F; font-weight: 700; letter-spacing: 0.08em; background: rgba(245, 191, 15, 0.1); padding: 6px 18px; border-radius: 999px; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(245, 191, 15, 0.3);">ENTERPRISE
+          style="color: #F5BF0F; font-weight: 700; letter-spacing: 0.08em; background: rgba(245, 191, 15, 0.15); padding: 6px 18px; border-radius: 999px; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(245, 191, 15, 0.4);">ENTERPRISE
           IT & DIGITAL SOLUTIONS</span>
         <h1
-          style="color: #0F172A !important; text-shadow: none; font-size: clamp(2.6rem, 5.5vw, 4.4rem); font-weight: 800; line-height: 1.12; margin-bottom: 22px;">
-          We build the <span style="color: #0B1F3A !important;">tech</span><br />your <span
+          style="color: #FFFFFF !important; text-shadow: 0 2px 10px rgba(0,0,0,0.3); font-size: clamp(2.6rem, 5.5vw, 4.4rem); font-weight: 800; line-height: 1.12; margin-bottom: 22px;">
+          We build the <span style="color: #23B6F3 !important;">tech</span><br />your <span
             style="color: #48B25F !important;">business</span><span style="color: #D70E69 !important;"> runs</span>
           <span class="logo-gradient-text"
             style="background: linear-gradient(135deg, #23B6F3, #48B25F, #D70E69, #F5BF0F) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important;">on.</span>
         </h1>
         <p class="hero-lead"
-          style="color: #475569 !important; text-shadow: none; font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.65; max-width: 680px; margin-bottom: 34px;">
+          style="color: rgba(255, 255, 255, 0.92) !important; text-shadow: none; font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.65; max-width: 680px; margin-bottom: 34px;">
           ZAVYX Infotech helps growing businesses build, automate and scale with modern <span
-            style="color: #0B1F3A; font-weight: 600;">websites</span>, <span
-            style="color: #0B1F3A; font-weight: 600;">CRM & ERP</span>, <span
-            style="color: #0B1F3A; font-weight: 600;">mobile apps</span>, <span
-            style="color: #0B1F3A; font-weight: 600;">AI automation</span> and cloud solutions.
+            style="color: #23B6F3; font-weight: 600;">websites</span>, <span
+            style="color: #F5BF0F; font-weight: 600;">CRM & ERP</span>, <span
+            style="color: #D70E69; font-weight: 600;">mobile apps</span>, <span
+            style="color: #48B25F; font-weight: 600;">AI automation</span> and cloud solutions.
         </p>
         <div class="hero-actions" style="display: flex; gap: 14px; flex-wrap: wrap;">
           <a href="contact.html" class="btn btn-primary"
             style="padding: 14px 34px; font-weight: 600; background: linear-gradient(135deg, #23B6F3 0%, #D70E69 100%); color: #ffffff; border: none; border-radius: 999px; box-shadow: 0 8px 24px rgba(35, 182, 243, 0.3);">Get
             a Quote</a>
           <a href="services.html" class="btn btn-outline"
-            style="color: #0F172A; border: 2px solid #23B6F3; background: #ffffff; padding: 14px 32px; font-weight: 600; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 16px rgba(35, 182, 243, 0.12);">Explore
-            Services <i data-lucide="arrow-right" style="color: #D70E69;"></i></a>
+            style="color: #ffffff !important; border: 1.5px solid #23B6F3; background: linear-gradient(135deg, #48B25F 0%, #23B6F3 100%); padding: 14px 32px; font-weight: 600; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 16px rgba(35, 182, 243, 0.25);">Explore
+            Services <i data-lucide="arrow-right" style="color: #ffffff;"></i></a>
         </div>
       </div>
     </div>
@@ -429,11 +461,8 @@
           for your business.
         </p>
         <div class="cta-actions">
-          <a href="contact.html" class="btn btn-ghost-light" class="btn btn-primary"
-            style="padding: 14px 34px; font-weight: 600; background: linear-gradient(135deg, #23B6F3 0%, #D70E69 100%); color: #ffffff; border: none; border-radius: 999px; ">Start
-            a Conversation</a>
-          <a href="https://wa.me/916382721178" target="_blank" rel="noopener" class="btn btn-ghost-light">Chat on
-            WhatsApp</a>
+          <a href="contact.html" class="btn btn-primary">Start a Conversation</a>
+          <a href="https://wa.me/916382721178" target="_blank" rel="noopener" class="btn btn-outline">Chat on WhatsApp</a>
         </div>
       </div>
     </div>
@@ -444,7 +473,7 @@
       <div class="footer-grid">
         <div>
           <a href="index.html" class="footer-brand">
-            <img src="assets/logo/logo.png" alt="ZAVYX logo" / loading="lazy" decoding="async">
+            <img src="assets/logo/logo.png" alt="ZAVYX logo" loading="lazy" decoding="async">
           </a>
           <div class="footer-social">
             <a href="https://www.facebook.com/zavyxindia/" target="_blank" rel="noopener" class="social-fb" aria-label="Facebook"
@@ -568,7 +597,7 @@
       <span class="fab-label">Zedex AI Assistant</span>
       <button class="fab fab-bot-trigger" aria-label="Open Zedex AI assistant" title="Open ZAVYX chatbot">
         <div class="fab-spin-border"></div>
-        <img src="assets/images/zavyx_chatbot_3d.png" alt="Zedex AI Assistant" class="fab-bot-3d-img" / loading="lazy"
+        <img src="assets/images/zavyx_chatbot_3d.png" alt="Zedex AI Assistant" class="fab-bot-3d-img" loading="lazy"
           decoding="async">
       </button>
     </div>
