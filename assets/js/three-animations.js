@@ -82,9 +82,14 @@ document.addEventListener('DOMContentLoaded', function () {
       targetRotationY = 0;
     });
 
-    // 5. Animation Render Loop
+    // 5. Animation Render Loop with IntersectionObserver & Reduced Motion Optimization
+    let isVisible = true;
+    let animFrameId = null;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     function animate() {
-      requestAnimationFrame(animate);
+      if (!isVisible) return;
+      animFrameId = requestAnimationFrame(animate);
 
       // Smooth interpolation for rotations and scales
       currentRotationX += (targetRotationX - currentRotationX) * 0.1;
@@ -92,24 +97,38 @@ document.addEventListener('DOMContentLoaded', function () {
       currentScale += (targetScale - currentScale) * 0.1;
 
       if (objectGroup) {
-        // Base auto rotation + mouse tilt rotation
         objectGroup.rotation.x = currentRotationX;
-        
-        // Auto spins slowly when hovered, stays relatively static or responds to tilt when user moves away
-        if (isHovered) {
-          objectGroup.rotation.y = currentRotationY + (Date.now() * 0.001);
-        } else {
-          objectGroup.rotation.y = currentRotationY + (Date.now() * 0.0003); // Very slow idle spin
+        if (!prefersReducedMotion) {
+          if (isHovered) {
+            objectGroup.rotation.y = currentRotationY + (Date.now() * 0.001);
+          } else {
+            objectGroup.rotation.y = currentRotationY + (Date.now() * 0.0003);
+          }
         }
-        
-        // Apply scaling transition
         objectGroup.scale.set(currentScale, currentScale, currentScale);
       }
 
       renderer.render(scene, camera);
     }
 
-    animate();
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          isVisible = entry.isIntersecting;
+          if (isVisible) {
+            if (!animFrameId) animate();
+          } else {
+            if (animFrameId) {
+              cancelAnimationFrame(animFrameId);
+              animFrameId = null;
+            }
+          }
+        });
+      }, { threshold: 0.05 });
+      observer.observe(parentCard);
+    } else {
+      animate();
+    }
 
     // 6. Handle Resizing
     window.addEventListener('resize', function () {
